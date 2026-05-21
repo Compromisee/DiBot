@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="guild-header">
+    <h1>🏆 {{ guild.name }} Leaderboard</h1>
+    <a href="/guild/{{ guild.id }}" class="btn btn-sm">← Back</a>
+</div>
+
+<table class="table">
+    <thead>
+        <tr><th>Rank</th><th>Member</th><th>Level</th><th>XP</th><th>Coins</th><th>Messages</th><th>Rep</th></tr>
+    </thead>
+    <tbody>
+        {% for m in leaderboard %}
+        <tr class="{% if loop.index <= 3 %}top-three{% endif %}">
+            <td>
+                {% if loop.index == 1 %}🥇{% elif loop.index == 2 %}🥈{% elif loop.index == 3 %}🥉{% else %}{{ loop.index }}{% endif %}
+            </td>
+            <td><img src="{{ m.avatar }}" class="mini-avatar"> {{ m.name }}</td>
+            <td>{{ m.level }}</td>
+            <td>{{ "{:,}".format(m.xp) }}</td>
+            <td>{{ "{:,}".format(m.coins + m.bank) }}</td>
+            <td>{{ "{:,}".format(m.messages) }}</td>
+            <td>{{ m.reputation }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

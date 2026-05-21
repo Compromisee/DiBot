@@ -1,0 +1,63 @@
+discord-bot/
+│
+├── bot.py                      # Main entry point
+├── config.py                   # Configuration
+├── .env                        # Secret tokens
+├── requirements.txt            # Dependencies
+├── README.md                   # Documentation
+│
+├── cogs/                       # Feature modules (Slash + Prefix)
+│   ├── __init__.py
+│   ├── moderation.py           # Ban, kick, mute, warn, lockdown
+│   ├── fun.py                  # Fun commands
+│   ├── economy.py              # Coin system + shop
+│   ├── leveling.py             # XP & levels + role rewards
+│   ├── utility.py              # Useful tools
+│   ├── admin.py                # Admin controls
+│   ├── events.py               # Event handlers
+│   ├── giveaways.py            # Giveaway system
+│   ├── tickets.py              # Support ticket system
+│   ├── music.py                # Music player
+│   ├── automod.py              # Auto-moderation
+│   ├── starboard.py            # Starboard system
+│   ├── reminders.py            # Reminder system
+│   ├── polls.py                # Advanced polls
+│   ├── reactionroles.py        # Reaction roles
+│   ├── afk.py                  # AFK system
+│   ├── suggestions.py          # Suggestion system
+│   ├── logging.py              # Advanced logging
+│   ├── games.py                # Mini games
+│   ├── welcomer.py             # Advanced welcome system
+│   └── slash_commands.py       # Global slash commands
+│
+├── dashboard/                  # Web dashboard
+│   ├── app.py                  # Flask/Quart web server
+│   ├── routes/
+│   │   ├── __init__.py
+│   │   ├── auth.py             # Discord OAuth2
+│   │   ├── api.py              # REST API
+│   │   └── views.py            # Page routes
+│   ├── templates/
+│   │   ├── base.html
+│   │   ├── index.html
+│   │   ├── login.html
+│   │   ├── dashboard.html
+│   │   ├── guild.html
+│   │   ├── leaderboard.html
+│   │   └── settings.html
+│   └── static/
+│       ├── css/
+│       │   └── style.css
+│       └── js/
+│           └── main.js
+│
+├── database/
+│   ├── __init__.py
+│   └── db.py                   # SQLite database
+│
+└── utils/
+    ├── __init__.py
+    ├── helpers.py              # Helper functions
+    ├── embeds.py               # Embed templates
+    ├── views.py                # Discord UI views/buttons
+    └── paginator.py            # Pagination system

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="dashboard-header">
+    <h1>📊 Your Servers</h1>
+    <p>Select a server to manage</p>
+</div>
+
+<div class="guild-grid">
+    {% for guild in guilds %}
+    <a href="/guild/{{ guild.id }}" class="guild-card">
+        <img src="{% if guild.icon %}https://cdn.discordapp.com/icons/{{ guild.id }}/{{ guild.icon }}.png?size=128{% else %}https://cdn.discordapp.com/embed/avatars/0.png{% endif %}" alt="{{ guild.name }}" class="guild-icon">
+        <h3>{{ guild.name }}</h3>
+        <span class="badge">Manage</span>
+    </a>
+    {% endfor %}
+</div>
+{% endblock %}

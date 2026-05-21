@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="guild-header">
+    <h1>⚙️ {{ guild.name }} Settings</h1>
+    <a href="/guild/{{ guild.id }}" class="btn btn-sm">← Back</a>
+</div>
+
+<form id="settings-form" class="settings-form">
+    <div class="setting-group">
+        <h3>🛡️ Moderation</h3>
+        <div class="setting-row">
+            <label>Max Warnings</label>
+            <input type="number" name="max_warnings" value="{{ settings.max_warnings }}" min="1" max="10">
+        </div>
+        <div class="setting-row">
+            <label>AutoMod</label>
+            <input type="checkbox" name="automod_enabled" {% if settings.automod_enabled %}checked{% endif %}>
+        </div>
+        <div class="setting-row">
+            <label>Anti-Link</label>
+            <input type="checkbox" name="antilink" {% if settings.antilink %}checked{% endif %}>
+        </div>
+        <div class="setting-row">
+            <label>Anti-Spam</label>
+            <input type="checkbox" name="antispam" {% if settings.antispam %}checked{% endif %}>
+        </div>
+    </div>
+
+    <div class="setting-group">
+        <h3>⭐ Starboard</h3>
+        <div class="setting-row">
+            <label>Star Threshold</label>
+            <input type="number" name="starboard_threshold" value="{{ settings.starboard_threshold }}" min="1" max="20">
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">
+        <i class="fas fa-save"></i> Save Settings
+    </button>
+</form>
+
+<div id="save-status" class="save-status"></div>
+
+<script>
+document.getElementById('settings-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const form = new FormData(e.target);
+    const data = {};
+    for (let [key, value] of form.entries()) {
+        data[key] = value === 'on' ? 1 : value;
+    }
+    // Handle unchecked checkboxes
+    ['automod_enabled', 'antilink', 'antispam'].forEach(k => {
+        if (!data[k]) data[k] = 0;
+    });
+    data['max_warnings'] = parseInt(data['max_warnings']);
+    data['starboard_threshold'] = parseInt(data['starboard_threshold']);
+
+    const resp = await fetch('/api/settings/{{ guild.id }}', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(data)
+    });
+    const status = document.getElementById('save-status');
+    if (resp.ok) {
+        status.textContent = '✅ Settings saved!';
+        status.className = 'save-status success';
+    } else {
+        status.textContent = '❌ Error saving settings!';
+        status.className = 'save-status error';
+    }
+    setTimeout(() => status.textContent = '', 3000);
+});
+</script>
+{% endblock %}

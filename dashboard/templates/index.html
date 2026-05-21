@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="hero">
+    <h1>🤖 UltimateBot</h1>
+    <p class="hero-subtitle">The most powerful Discord bot with 50+ features</p>
+    <div class="hero-stats">
+        <div class="stat-card">
+            <i class="fas fa-server"></i>
+            <span class="stat-number">{{ bot.guilds|length if bot else '0' }}</span>
+            <span class="stat-label">Servers</span>
+        </div>
+        <div class="stat-card">
+            <i class="fas fa-users"></i>
+            <span class="stat-number">{{ bot.users|length if bot else '0' }}</span>
+            <span class="stat-label">Users</span>
+        </div>
+        <div class="stat-card">
+            <i class="fas fa-terminal"></i>
+            <span class="stat-number">50+</span>
+            <span class="stat-label">Commands</span>
+        </div>
+    </div>
+    {% if not user %}
+        <a href="/login" class="btn btn-primary btn-lg">
+            <i class="fab fa-discord"></i> Login with Discord
+        </a>
+    {% else %}
+        <a href="/dashboard" class="btn btn-primary btn-lg">
+            <i class="fas fa-tachometer-alt"></i> Open Dashboard
+        </a>
+    {% endif %}
+</div>
+
+<section class="features">
+    <h2>⚡ Features</h2>
+    <div class="feature-grid">
+        <div class="feature-card">
+            <i class="fas fa-shield-alt"></i>
+            <h3>Moderation</h3>
+            <p>Ban, kick, mute, warn, purge, lock, tempban, automod</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-coins"></i>
+            <h3>Economy</h3>
+            <p>Coins, bank, shop, gambling, rob, work, daily rewards</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-star"></i>
+            <h3>Leveling</h3>
+            <p>XP system, rank cards, leaderboards, role rewards</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-gift"></i>
+            <h3>Giveaways</h3>
+            <p>Create, manage, and auto-end giveaways</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-ticket-alt"></i>
+            <h3>Tickets</h3>
+            <p>Support ticket system with claiming and logging</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-gamepad"></i>
+            <h3>Games</h3>
+            <p>Trivia, tic-tac-toe, slots, number guessing</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-star-half-alt"></i>
+            <h3>Starboard</h3>
+            <p>Highlight the best messages automatically</p>
+        </div>
+        <div class="feature-card">
+            <i class="fas fa-robot"></i>
+            <h3>AutoMod</h3>
+            <p>Anti-spam, anti-link, banned words, caps filter</p>
+        </div>
+    </div>
+</section>
+{% endblock %}

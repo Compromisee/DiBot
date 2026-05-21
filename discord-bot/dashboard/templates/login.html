@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="login-page">
+    <div class="login-card">
+        <div class="login-icon">
+            <i class="fab fa-discord"></i>
+        </div>
+
+        <h1>Welcome Back</h1>
+        <p class="login-subtitle">Login with Discord to manage your servers</p>
+
+        <a href="/login" class="btn btn-primary btn-login">
+            <i class="fab fa-discord"></i>
+            Login with Discord
+        </a>
+
+        <div class="login-features">
+            <div class="login-feature">
+                <i class="fas fa-shield-alt"></i>
+                <span>Secure OAuth2</span>
+            </div>
+            <div class="login-feature">
+                <i class="fas fa-server"></i>
+                <span>Manage Servers</span>
+            </div>
+            <div class="login-feature">
+                <i class="fas fa-chart-bar"></i>
+                <span>View Stats</span>
+            </div>
+        </div>
+
+        <p class="login-note">
+            <i class="fas fa-lock"></i>
+            We only request read access to your guilds. No sensitive data is stored.
+        </p>
+    </div>
+</div>
+
+<style>
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+}
+.login-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 3rem;
+    text-align: center;
+    max-width: 450px;
+    width: 100%;
+    box-shadow: var(--shadow);
+}
+.login-icon {
+    font-size: 4rem;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+}
+.login-card h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+.login-subtitle {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}
+.btn-login {
+    width: 100%;
+    justify-content: center;
+    padding: 1rem;
+    font-size: 1.1rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+}
+.login-features {
+    display: flex;
+    justify-content: space-around;
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    gap: 1rem;
+}
+.login-feature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+.login-feature i {
+    font-size: 1.3rem;
+    color: var(--accent);
+}
+.login-note {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    margin-top: 1rem;
+}
+.login-note i {
+    color: var(--success);
+    margin-right: 0.3rem;
+}
+</style>
+
+{% endblock %}
