@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DiBot — Documentation</title>
+    <meta name="description" content="Complete documentation for DiBot Discord Bot. Setup guides, command reference, configuration, and API docs.">
+    <meta name="theme-color" content="#0c0c0c">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="docs-page">
+
+    <canvas id="particles" class="particles-canvas"></canvas>
+    <div class="grid-overlay"></div>
+
+    <!-- ══════════════════════════════ -->
+    <!--  NAVBAR                       -->
+    <!-- ══════════════════════════════ -->
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="/" class="nav-brand">
+                <span class="material-symbols-outlined brand-icon">bolt</span>
+                <span class="brand-text">DiBot</span>
+            </a>
+            <div class="nav-links">
+                <a href="/" class="nav-link">Home</a>
+                <a href="docs.html" class="nav-link active">Docs</a>
+            </div>
+            <div class="nav-actions">
+                <a href="https://discord.gg/yxbEGDnvac" target="_blank" class="btn btn-outline">
+                    <span class="material-symbols-outlined btn-icon">forum</span>
+                    Discord
+                </a>
+                <a href="https://github.com/Compromisee/DiBot" target="_blank" class="btn btn-fill">
+                    <span class="material-symbols-outlined btn-icon">code</span>
+                    GitHub
+                </a>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="mobile-drawer" id="mobileDrawer">
+        <a href="/" class="drawer-link">Home</a>
+        <a href="docs.html" class="drawer-link">Docs</a>
+        <div class="drawer-actions">
+            <a href="https://discord.gg/yxbEGDnvac" target="_blank" class="btn btn-outline btn-block">Discord</a>
+            <a href="https://github.com/Compromisee/DiBot" target="_blank" class="btn btn-fill btn-block">GitHub</a>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════ -->
+    <!--  DOCS LAYOUT                  -->
+    <!-- ══════════════════════════════ -->
+    <div class="docs-layout">
+
+        <!-- Sidebar -->
+        <aside class="docs-sidebar" id="docsSidebar">
+            <div class="sidebar-section">
+                <h4 class="sidebar-heading">Getting Started</h4>
+                <a href="#overview" class="sidebar-link active">
+                    <span class="material-symbols-outlined">info</span> Overview
+                </a>
+                <a href="#prerequisites" class="sidebar-link">
+                    <span class="material-symbols-outlined">checklist</span> Prerequisites
+                </a>
+                <a href="#installation" class="sidebar-link">
+                    <span class="material-symbols-outlined">download</span> Installation
+                </a>
+                <a href="#configuration" class="sidebar-link">
+                    <span class="material-symbols-outlined">settings</span> Configuration
+                </a>
+                <a href="#running" class="sidebar-link">
+                    <span class="material-symbols-outlined">play_arrow</span> Running the Bot
+                </a>
+            </div>
+
+            <div class="sidebar-section">
+                <h4 class="sidebar-heading">Configuration</h4>
+                <a href="#env-variables" class="sidebar-link">
+                    <span class="material-symbols-outlined">key</span> Environment Variables
+                </a>
+                <a href="#bot-token" class="sidebar-link">
+                    <span class="material-symbols-outlined">vpn_key</span> Bot Token
+                </a>
+                <a href="#dashboard-setup" class="sidebar-link">
+                    <span class="material-symbols-outlined">dashboard</span> Dashboard Setup
+                </a>
+                <a href="#ffmpeg" class="sidebar-link">
+                    <span class="material-symbols-outlined">music_note</span> FFmpeg (Music)
+                </a>
+            </div>
+
+            <div class="sidebar-section">
+                <h4 class="sidebar-heading">Commands</h4>
+                <a href="#cmd-moderation" class="sidebar-link">
+                    <span class="material-symbols-outlined">shield</span> Moderation
+                </a>
+                <a href="#cmd-economy" class="sidebar-link">
+                    <span class="material-symbols-outlined">paid</span> Economy
+                </a>
+                <a href="#cmd-leveling" class="sidebar-link">
+                    <span class="material-symbols-outlined">star</span> Leveling
+                </a>
+                <a href="#cmd-fun" class="sidebar-link">
+                    <span class="material-symbols-outlined">sports_esports</span> Fun & Games
+                </a>
+                <a href="#cmd-music" class="sidebar-link">
+                    <span class="material-symbols-outlined">music_note</span> Music
+                </a>
+                <a href="#cmd-giveaways" class="sidebar-link">
+                    <span class="material-symbols-outlined">redeem</span> Giveaways
+                </a>
+                <a href="#cmd-tickets" class="sidebar-link">
+                    <span class="material-symbols-outlined">confirmation_number</span> Tickets
+                </a>
+                <a href="#cmd-polls" class="sidebar-link">
+                    <span class="material-symbols-outlined">poll</span> Polls
+                </a>
+                <a href="#cmd-utility" class="sidebar-link">
+                    <span class="material-symbols-outlined">build</span> Utility
+                </a>
+                <a href="#cmd-admin" class="sidebar-link">
+                    <span class="material-symbols-outlined">admin_panel_settings</span> Admin
+                </a>
+            </div>
+
+            <div class="sidebar-section">
+                <h4 class="sidebar-heading">Systems</h4>
+                <a href="#sys-automod" class="sidebar-link">
+                    <span class="material-symbols-outlined">smart_toy</span> AutoMod
+                </a>
+                <a href="#sys-starboard" class="sidebar-link">
+                    <span class="material-symbols-outlined">grade</span> Starboard
+                </a>
+                <a href="#sys-welcome" class="sidebar-link">
+                    <span class="material-symbols-outlined">waving_hand</span> Welcome
+                </a>
+                <a href="#sys-afk" class="sidebar-link">
+                    <span class="material-symbols-outlined">bedtime</span> AFK
+                </a>
+                <a href="#sys-suggestions" class="sidebar-link">
+                    <span class="material-symbols-outlined">lightbulb</span> Suggestions
+                </a>
+                <a href="#sys-reactionroles" class="sidebar-link">
+                    <span class="material-symbols-outlined">add_reaction</span> Reaction Roles
+                </a>
+                <a href="#sys-reminders" class="sidebar-link">
+                    <span class="material-symbols-outlined">alarm</span> Reminders
+                </a>
+                <a href="#sys-logging" class="sidebar-link">
+                    <span class="material-symbols-outlined">description</span> Logging
+                </a>
+                <a href="#sys-tags" class="sidebar-link">
+                    <span class="material-symbols-outlined">label</span> Tags
+                </a>
+            </div>
+
+            <div class="sidebar-section">
+                <h4 class="sidebar-heading">Technical</h4>
+                <a href="#database" class="sidebar-link">
+                    <span class="material-symbols-outlined">database</span> Database Schema
+                </a>
+                <a href="#api" class="sidebar-link">
+                    <span class="material-symbols-outlined">api</span> REST API
+                </a>
+                <a href="#project-structure" class="sidebar-link">
+                    <span class="material-symbols-outlined">folder</span> Project Structure
+                </a>
+                <a href="#background-tasks" class="sidebar-link">
+                    <span class="material-symbols-outlined">schedule</span> Background Tasks
+                </a>
+                <a href="#dependencies" class="sidebar-link">
+                    <span class="material-symbols-outlined">inventory_2</span> Dependencies
+                </a>
+            </div>
+
+            <div class="sidebar-section">
+                <h4 class="sidebar-heading">Help</h4>
+                <a href="#faq" class="sidebar-link">
+                    <span class="material-symbols-outlined">help</span> FAQ
+                </a>
+                <a href="#troubleshooting" class="sidebar-link">
+                    <span class="material-symbols-outlined">bug_report</span> Troubleshooting
+                </a>
+                <a href="#contributing" class="sidebar-link">
+                    <span class="material-symbols-outlined">handshake</span> Contributing
+                </a>
+            </div>
+        </aside>
+
+        <!-- Sidebar Toggle (Mobile) -->
+        <button class="sidebar-toggle" id="sidebarToggle">
+            <span class="material-symbols-outlined">menu</span>
+        </button>
+
+        <!-- Main Content -->
+        <main class="docs-content" id="docsContent">
+
+            <!-- ── OVERVIEW ───────────────── -->
+            <article class="doc-article" id="overview">
+                <div class="doc-header">
+                    <span class="material-symbols-outlined doc-icon">info</span>
+                    <h1>Overview</h1>
+                </div>
+                <p>
+                    <strong>DiBot</strong> is a fully-featured, production-ready Discord bot built with
+                    <code>discord.py 2.3.2</code>. It supports both prefix commands (<code>!</code>) and
+                    slash commands (<code>/</code>), includes a web dashboard powered by Quart, and uses
+                    SQLite for persistent data storage.
+                </p>
+                <div class="doc-callout doc-callout-info">
+                    <span class="material-symbols-outlined">lightbulb</span>
+                    <div>
+                        <strong>94+ features</strong> included out of the box. No premium tiers, no paywalls, no missing functionality. Deploy once and everything works.
+                    </div>
+                </div>
+
+                <h2>Key Highlights</h2>
+                <div class="doc-grid-2">
+                    <div class="doc-mini-card">
+                        <span class="material-symbols-outlined pastel-purple">terminal</span>
+                        <div>
+                            <strong>94+ Commands</strong>
+                            <p>Both prefix and slash support</p>
+                        </div>
+                    </div>
+                    <div class="doc-mini-card">
+                        <span class="material-symbols-outlined pastel-blue">language</span>
+                        <div>
+                            <strong>Web Dashboard</strong>
+                            <p>Manage via browser with OAuth2</p>
+                        </div>
+                    </div>
+                    <div class="doc-mini-card">
+                        <span class="material-symbols-outlined pastel-green">database</span>
+                        <div>
+                            <strong>SQLite Database</strong>
+                            <p>No external database needed</p>
+                        </div>
+                    </div>
+                    <div class="doc-mini-card">
+                        <span class="material-symbols-outlined pastel-yellow">lock</span>
+                        <div>
+                            <strong>Permission System</strong>
+                            <p>Discord-native permission checks</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ── PREREQUISITES ──────────── -->
+            <article class="doc-article" id="prerequisites">
+                <div class="doc-header">
+                    <span class="material-symbols-outlined doc-icon">checklist</span>
+                    <h1>Prerequisites</h1>
+                </div>
+                <p>Before installing DiBot, make sure you have the following:</p>
+
+                <div class="doc-table-wrap">
+                    <table class="doc-table">
+                        <thead>
+                            <tr><th>Requirement</th><th>Version</th><th>Required</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><span class="material-symbols-outlined table-icon">code</span> Python</td><td><code>3.11+</code></td><td><span class="badge badge-yes">Required</span></td></tr>
+                            <tr><td><span class="material-symbols-outlined table-icon">storage</span> Git</td><td>Any</td><td><span class="badge badge-yes">Required</span></td></tr>
+                            <tr><td><span class="material-symbols-outlined table-icon">music_note</span> FFmpeg</td><td>Latest</td><td><span class="badge badge-opt">Music only</span></td></tr>
+                            <tr><td><span class="material-symbols-outlined table-icon">smart_toy</span> Discord Bot</td><td>-</td><td><span class="badge badge-yes">Required</span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="doc-callout doc-callout-warn">
+                    <span class="material-symbols-outlined">warning</span>
+                    <div>
+                        <strong>Discord Intents</strong> must be enabled in the Developer Portal:
+                        Presence Intent, Server Members Intent, and Message Content Intent.
+                    </div>
+                </div>
+            </article>
+
+            <!-- ── INSTALLATION ───────────── -->
+            <article class="doc-article" id="installation">
+                <div class="doc-header">
+                    <span class="material-symbols-outlined doc-icon">download</span>
+                    <h1>Installation</h1>
+                </div>
+
+                <h2>1. Clone the Repository</h2>
+                <div class="doc-code">
+                    <div class="doc-code-header">
+                        <span>bash</span>
+                        <button class="copy-btn" data-copy="git clone https://github.com/Compromisee/DiBot.git
+cd DiBot">
+                            <span class="material-symbols-outlined">content_copy</span>
+                        </button>
+                    </div>
+                    <pre><code>git clone https://github.com/Compromisee/DiBot.git
+cd DiBot</code></pre>
+                </div>
+
+                <h2>2. Create Virtual Environment</h2>
+                <div class="doc-code">
+                    <div class="doc-code-header">
+                        <span>bash</span>
+                        <button class="copy-btn" data-copy="python -m venv venv
+source venv/bin/activate">
+                            <span class="material-symbols-outlined">content_copy</span>
+                        </button>
+                    </div>
+                    <pre><code># Linux / Mac
+python -m venv venv
+source venv/bin/activate
+
+# Windows
+python -m venv venv
+venv\Scripts\activate</code></pre>
+                </div>
+
+                <h2>3. Install Dependencies</h2>
+                <div class="doc-code">
+                    <div class="doc-code-header">
+                        <span>bash</span>
+                        <button class="copy-btn" data-copy="pip install -r requirements.txt">
+                            <span class="material-symbols-outlined">content_copy</span>
+                        </button>
+                    </div>
+                    <pre><code>pip install -r requirements.txt</code></pre>
+                </div>
+            </article>
+
+            <!-- ── CONFIGURATION ──────────── -->
+            <article class="doc-article" id="configuration">
+                <div class="doc-header">
+                    <span class="material-symbols-outlined doc-icon">settings</span>
+                    <h1>Configuration</h1>
+                </div>
+                <p>Copy the example environment file and edit it with your tokens:</p>
+                <div class="doc-code">
+                    <div class="doc-code-header">
+                        <span>bash</span>
+                        <button class="copy-btn" data-copy="cp .env.example .env"><span class="material-symbols-outlined">content_copy</span></button>
+                    </div>
+                    <pre><code>cp .env.example .env</code></pre>
+                </div>
+            </article>
+
+            <!-- ── ENV VARIABLES ──────────── -->
+            <article class="doc-article" id="env-variables">
+                <div class="doc-header">
+                    <span class="material-symbols-outlined doc-icon">key</span>
+                    <h1>Environment Variables</h1>
+                </div>
+                <p>All configuration is managed through the <code>.env</code> file.</p>
+
+                <h2>Required Variables</h2>
+                <div class="doc-table-wrap">
+                    <table class="doc-table">
+                        <thead><tr><th>Variable</th><th>Description</th><th>Example</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>DISCORD_TOKEN</code></td><td>Your bot token from Discord Developer Portal</td><td><code>MTIz...abc</code></td></tr>
+                            <tr><td><code>PREFIX</code></td><td>Command prefix for text commands</td><td><code>!</code></td></tr>
+                            <tr><td><code>BOT_NAME</code></td><td>Display name used in embeds</td><td><code>DiBot</code></td></tr>
+                            <tr><td><code>OWNER_ID</code></td><td>Your Discord user ID</td><td><code>123456789</code></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2>Dashboard Variables</h2>
+                <div class="doc-table-wrap">
+                    <table class="doc-table">
+                        <thead><tr><th>Variable</th><th>Description</th><th>Example</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>DASHBOARD_SECRET</code></td><td>Random secret for session signing</td><td><code>my-secret-key</code></td></tr>
+                            <tr><td><code>CLIENT_ID</code></td><td>Bot application ID</td><td><code>123456789</code></td></tr>
+                            <tr><td><code>CLIENT_SECRET</code></td><td>OAuth2 client secret</td><td><code>abc...xyz</code></td></tr>
+                            <tr><td><code>REDIRECT_URI</code></td><td>OAuth2 redirect URL</td><td><code>http://localhost:5000/callback</code></td></tr>
+                            <tr><td><code>DASHBOARD_PORT</code></td><td>Web dashboard port</td><td><code>5000</code></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2>Optional Variables</h2>
+                <div class="doc-table-wrap">
+                    <table class="doc-table">
+                        <thead><tr><th>Variable</th><th>Description</th><th>Default</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>OPENAI_API_KEY</code></td><td>For AI features (if extended)</td><td>None</td></tr>
+                            <tr><td><code>SPOTIFY_CLIENT_ID</code></td><td>Future Spotify integration</td><td>None</td></tr>
+                            <tr><td><code>SPOTIFY_CLIENT_SECRET</code></td><td>Future Spotify integration</td><td>None</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+
+            <!-- ── BOT TOKEN ──────────────── -->
+            <article class="doc-article" id="bot-token">
+                <div class="doc-header">
+                    <span class="material-symbols-outlined doc-icon">vpn_key</span>
+                    <h1>Getting Your Bot Token</h1>
+                </div>
+                <ol class="doc-steps">
+                    <li>Go to <a href="https://discord.com/developers/applications" target="_blank">discord.com/developers/applications</a></li>
+                    <li>Click <strong>New Application</strong> and give it a name</li>
+                    <li>Navigate to the <strong>Bot</strong> tab</li>
+                    <li>Click <strong>Add Bot</strong> then <strong>Reset Token</strong></li>
+                    <li>Copy the token and paste into <code>DISCORD_TOKEN</code> in your <code>.env</code></li>
+                </ol>
+
+                <div class="doc-callout doc-callout-error">
+                    <span class="material-symbols-outlined">error</span>
+                    <div>
+                        <strong>Never share your bot token.</strong> If leaked, immediately reset it in the Developer Portal.
+                    </div>
+                </div>
+
+                <h2>Required Intents</h2>
+                <p>Enable these in the Bot tab of the Developer Portal:</p>
+                <div class="doc-check-list">
+                    <div class="doc-check"><span class="material-symbols-outlined pastel-green">check_circle</span> Presence Intent</div>
+                    <div class="doc-check"><span class="material-symbols-outlined pastel-green">check_circle</span> Server Members Intent</div>
+                    <div class="doc-check"><span class="material-symbols-outlined pastel-green">check_circle</span> Message Content Intent</div>
+                </div>
+            </article>
+
+            <!-- ── DASHBOARD SETUP ────────── -->
+            <article class="doc-article" id="dashboard-setup">
+                <div class="doc-header">
+                    <span class="material-symbols-outlined doc-icon">dashboard</span>
+                    <h1>Dashboard Setup</h1>
+                </div>
+                <ol class="doc-steps">
+                    <li>In Developer Portal, go to <strong>OAuth2</strong> tab</li>
+                    <li>Click <strong>Reset Secret</strong> and copy it to <code>CLIENT_SECRET</code></li>
+                    <li>Under <strong>Redirects</strong>, add: <code>http://localhost:5000/callback</code></li>
+                    <li>Set <code>REDIRECT_URI</code> in <code>.env</code> to the same URL</li>
+                    <li>The dashboard starts automatically with the bot</li>
+                </ol>
+                <div class="doc-callout doc-callout-info">
+                    <span class="material-symbols-outlined">lightbulb</span>
+                    <div>The dashboard runs on <code>http://localhost:5000</code> by default. Change <code>DASHBOARD_PORT</code> to use a different port.</div>
+                </div>
+            </article>
+
+            <!-- ── FFMPEG ─────────────────── -->
+            <article class="doc-article" id="ffmpeg">
+                <div class="doc-header">
+                    <span class="material-symbols-outlined doc-icon">music_note</span>
+                    <h1>FFmpeg Setup</h1>
+                </div>
+                <p>Music playback requires FFmpeg installed on your system:</p>
+
+                <h2>Windows</h2>
+                <div class="doc-code">
+                    <div class="doc-code-header"><span>powershell</span></div>
+                    <pre><code>choco install ffmpeg
+# Or download from https://ffmpeg.org/download.html</code></pre>
+                </div>
+
+                <h2>Linux</h2>
+                <div class="doc-code">
+                    <div class="doc-code-header"><span>bash</span></div>
+                    <pre><code>sudo apt update && sudo apt install ffmpeg -y</code></pre>
+                </div>
+
+                <h2>macOS</h2>
+                <div class="doc-code">
+                    <div class="doc-code-header"><span>bash</span></div>
+                    <pre><code>brew install ffmpeg</code></pre>
+                </div>
+            </article>
+
+            <!-- ── RUNNING ────────────────── -->
+            <article class="doc-article" id="running">
+                <div class="doc-header">
+                    <span class="material-symbols-outlined doc-icon">play_arrow</span>
+                    <h1>Running the Bot</h1>
+                </div>
+                <div class="doc-code">
+                    <div class="doc-code-header"><span>bash</span></div>
+                    <pre><code>python bot.py</code></pre>
+                </div>
+                <p>On successful start you will see:</p>
+                <div class="doc-code">
+                    <div class="doc-code-header"><span>output</span></div>
+                    <pre><code>  Database initialized!
+  Loaded: cogs.events
+  Loaded: cogs.slash_commands
+  Loaded: cogs.moderation
+  ...
+  Synced 50+ slash commands
+
+  DiBot is ONLINE!
+  Guilds: 1
+  Dashboard: http://localhost:5000</code></pre>
+                </div>
+            </article>
+
+            <!-- ── CMD: MODERATION ────────── -->
+            <article class="doc-article" id="cmd-moderation">
+                <div class="doc-header">
+                    <span class="material-symbols-outlined doc-icon">shield</span>
+                    <h1>Moderation Commands</h1>
+                </div>
+                <p>All moderation actions are logged to the configured log channel and stored in the database.</p>
+
+                <div class="doc-table-wrap">
+                    <table class="doc-table">
+                        <thead><tr><th>Command</th><th>Aliases</th><th>Permission</th><th>Description</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>!kick @user [reason]</code></td><td>-</td><td>Kick Members</td><td>Kick a member from the server</td></tr>
+                            <tr><td><code>!ban @user [reason]</code></td><td>-</td><td>Ban Members</td><td>Permanently ban a member</td></tr>
+                            <tr><td><code>!tempban @user &lt;dur&gt; [reason]</code></td><td>-</td><td>Ban Members</td><td>Temporary ban with auto-unban</td></tr>
+                            <tr><td><code>!unban &lt;user_id&gt;</code></td><td>-</td><td>Ban Members</td><td>Unban a user by their ID</td></tr>
+                            <tr><td><code>!mute @user [min] [reason]</code></td><td>-</td><td>Manage Roles</td><td>Timeout a member</td></tr>
+                            <tr><td><code>!unmute @user</code></td><td>-</td><td>Manage Roles</td><td>Remove timeout</td></tr>
+                            <tr><td><code>!warn @user [reason]</code></td><td>-</td><td>Manage Messages</td><td>Issue a tracked warning</td></tr>
+                            <tr><td><code>!warnings @user</code></td><td>-</td><td>Manage Messages</td><td>View all warnings</td></tr>
+                            <tr><td><code>!clearwarnings @user</code></td><td><code>clearwarns</code></td><td>Administrator</td><td>Clear all warnings</td></tr>
+                            <tr><td><code>!purge [n] [@user]</code></td><td><code>clear</code></td><td>Manage Messages</td><td>Bulk delete messages (1-100)</td></tr>
+                            <tr><td><code>!slowmode [seconds]</code></td><td>-</td><td>Manage Channels</td><td>Set slowmode (0 to disable)</td></tr>
+                            <tr><td><code>!lock [#channel]</code></td><td>-</td><td>Manage Channels</td><td>Lock a channel</td></tr>
+                            <tr><td><code>!unlock [#channel]</code></td><td>-</td><td>Manage Channels</td><td>Unlock a channel</td></tr>
+                            <tr><td><code>!lockdown</code></td><td>-</td><td>Administrator</td><td>Lock ALL channels</td></tr>
+                            <tr><td><code>!unlockdown</code></td><td>-</td><td>Administrator</td><td>Unlock ALL channels</td></tr>
+                            <tr><td><code>!nick @user [name]</code></td><td>-</td><td>Manage Nicknames</td><td>Change nickname</td></tr>
+                            <tr><td><code>!role @user @role</code></td><td>-</td><td>Manage Roles</td><td>Toggle a role</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="doc-callout doc-callout-info">
+                    <span class="material-symbols-outlined">lightbulb</span>
+                    <div><strong>Auto-ban:</strong> When a member reaches the configured max warnings (default: 3), they are automatically banned.</div>
+                </div>
+            </article>
+
+            <!-- ── CMD: ECONOMY ───────────── -->
+            <article class="doc-article" id="cmd-economy">
+                <div class="doc-header">
+                    <span class="material-symbols-outlined doc-icon">paid</span>
+                    <h1>Economy Commands</h1>
+                </div>
+
+                <div class="doc-table-wrap">
+                    <table class="doc-table">
+                        <thead><tr><th>Command</th><th>Aliases</th><th>Cooldown</th><th>Description</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>!balance [@user]</code></td><td><code>bal</code> <code>wallet</code></td><td>-</td><td>Check coin balance</td></tr>
+                            <tr><td><code>!daily</code></td><td>-</td><td>24h</td><td>Claim 100 + bonus coins</td></tr>
+                            <tr><td><code>!work</code></td><td>-</td><td>1h</td><td>Work a random job (50-200 coins)</td></tr>
+                            <tr><td><code>!deposit &lt;amt|all&gt;</code></td><td><code>dep</code></td><td>-</td><td>Move coins to bank</td></tr>
+                            <tr><td><code>!withdraw &lt;amt|all&gt;</code></td><td><code>with</code></td><td>-</td><td>Move coins from bank</td></tr>
+                            <tr><td><code>!pay @user &lt;amount&gt;</code></td><td><code>give</code></td><td>-</td><td>Transfer coins</td></tr>
+                            <tr><td><code>!gamble &lt;amt|all&gt;</code></td><td><code>bet</code></td><td>30s</td><td>Bet coins (55+ wins)</td></tr>
+                            <tr><td><code>!rob @user</code></td><td><code>steal</code></td><td>2h</td><td>Attempt robbery (40% chance)</td></tr>
+                            <tr><td><code>!slots [bet]</code></td><td>-</td><td>10s</td><td>Slot machine</td></tr>
+                            <tr><td><code>!shop</code></td><td>-</td><td>-</td><td>View server shop</td></tr>
+                            <tr><td><code>!buy &lt;item&gt;</code></td><td>-</td><td>-</td><td>Purchase item</td></tr>
+                            <tr><td><code>!inventory</code></td><td><code>inv</code></td><td>-</td><td>View owned items</td></tr>
+                            <tr><td><code>!richest</code></td><td><code>rich</code></td><td>-</td><td>Wealth leaderboard</td></tr>
+                            <tr><td><code>!rep @user</code></td><td>-</td><td>24h</td><td>Give reputation</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2>Economy Configuration</h2>
+                <div class="doc-code">
+                    <div class="doc-code-header"><span>config.py</span></div>
+                    <pre><code>DAILY_COINS      = 100
+WORK_MIN_COINS   = 50
+WORK_MAX_COINS   = 200
+STARTING_BALANCE = 500
+ROB_SUCCESS_RATE = 40      # percent
+ROB_FINE_PERCENT = 20      # percent of wallet</code></pre>
+                </div>
+
+                <h2>Slot Machine Payouts</h2>
+                <div class="doc-table-wrap">
+                    <table class="doc-table">
+                        <thead><tr><th>Symbol</th><th>Weight</th><th>Jackpot Multiplier</th></tr></thead>
+                        <tbody>
+                            <tr><td>Cherry</td><td>30</td><td>x3</td></tr>
+                            <tr><td>Lemon</td><td>25</td><td>x4</td></tr>
+                            <tr><td>Orange</td><td>20</td><td>x5</td></tr>
+                            <tr><td>Grape</td><td>15</td><td>x8</td></tr>
+                            <tr><td>Diamond</td><td>7</td><td>x15</td></tr>
+                            <tr><td>Seven</td><td>3</td><td>x50</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+
+            <!-- ── CMD: LEVELING ──────────── -->
+            <article class="doc-article" id="cmd-leveling">
+                <div class="doc-header">
+                    <span class="material-symbols-outlined doc-icon">star</span>
+                    <h1>Leveling & XP</h1>
+                </div>
+
+                <div class="doc-table-wrap">
+                    <table class="doc-table">
+                        <thead><tr><th>Command</th><th>Aliases</th><th>Description</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>!rank [@user]</code></td><td><code>level</code> <code>xp</code></td><td>View rank card with progress bar</td></tr>
+                            <tr><td><code>!leaderboard</code></td><td><code>lb</code> <code>top</code></td><td>Paginated XP leaderboard</td></tr>
+                            <tr><td><code>!addlevelrole &lt;lvl&gt; @role</code></td><td>-</td><td>Add level role reward</td></tr>
+                            <tr><td><code>!removelevelrole &lt;lvl&gt;</code></td><td>-</td><td>Remove level role</td></tr>
+                            <tr><td><code>!levelroles</code></td><td>-</td><td>List all level roles</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2>XP Formula</h2>
+                <div class="doc-code">
+                    <div class="doc-code-header"><span>python</span></div>
+                    <pre><code>def xp_for_level(level: int) -> int:
+    return 5 * (level ** 2) + 50 * level + 100</code></pre>
+                </div>
+
+                <h2>XP Per Level</h2>
+                <div class="doc-table-wrap">
+                    <table class="doc-table">
+                        <thead><tr><th>Level</th><th>XP Required</th></tr></thead>
+                        <tbody>
+                            <tr><td>1 to 2</td><td>155</td></tr>
+                            <tr><td>5 to 6</td><td>475</td></tr>
+                            <tr><td>10 to 11</td><td>1,100</td></tr>
+                            <tr><td>25 to 26</td><td>4,475</td></tr>
+                            <tr><td>50 to 51</td><td>15,100</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+
+            <!-- ── CMD: FUN ───────────────── -->
+            <article class="doc-article" id="cmd-fun">
+                <div class="doc-header">
+                    <span class="material-symbols-outlined doc-icon">sports_esports</span>
+                    <h1>Fun & Games</h1>
+                </div>
+
+                <div class="doc-table-wrap">
+                    <table class="doc-table">
+                        <thead><tr><th>Command</th><th>Aliases</th><th>Description</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>!8ball &lt;question&gt;</code></td><td><code>eightball</code></td><td>Magic 8-ball</td></tr>
+                            <tr><td><code>!coinflip</code></td><td><code>flip</code></td><td>Heads or tails</td></tr>
+                            <tr><td><code>!roll [sides]</code></td><td><code>dice</code></td><td>Roll dice (default d6)</td></tr>
+                            <tr><td><code>!joke</code></td><td>-</td><td>Random joke from API</td></tr>
+                            <tr><td><code>!meme</code></td><td>-</td><td>Random Reddit meme</td></tr>
+                            <tr><td><code>!cat</code></td><td>-</td><td>Random cat image</td></tr>
+                            <tr><td><code>!dog</code></td><td>-</td><td>Random dog image</td></tr>
+                            <tr><td><code>!rps &lt;choice&gt;</code></td><td>-</td><td>Rock Paper Scissors</td></tr>
+                            <tr><td><code>!wyr</code></td><td>-</td><td>Would You Rather</td></tr>
+                            <tr><td><code>!roast [@user]</code></td><td>-</td><td>Roast someone</td></tr>
+                            <tr><td><code>!compliment [@user]</code></td><td><code>praise</code></td><td>Compliment someone</td></tr>
+                            <tr><td><code>!rate &lt;thing&gt;</code></td><td>-</td><td>Rate anything /10</td></tr>
+                            <tr><td><code>!hug @user</code></td><td>-</td><td>Hug someone</td></tr>
+                            <tr><td><code>!choose a|b|c</code></td><td>-</td><td>Random choice</td></tr>
+                            <tr><td><code>!reverse &lt;text&gt;</code></td><td>-</td><td>Reverse text</td></tr>
+                            <tr><td><code>!mock &lt;text&gt;</code></td><td>-</td><td>mOcK tExT</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>Interactive Games</h3>
+                <div class="doc-table-wrap">
+                    <table class="doc-table">
+                        <thead><tr><th>Command</th><th>Description</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>/tictactoe @user</code></td><td>3x3 Tic-Tac-Toe with Discord buttons</td></tr>
+                            <tr><td><code>/trivia</code></td><td>Trivia from OpenTDB - win coins for correct answer</td></tr>
+                            <tr><td><code>/guess</code></td><td>Guess number 1-100 in 6 tries</td></tr>
+                            <tr><td><code>/slots [bet]</code></td><td>Weighted slot machine</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+
+            <!-- ── CMD: MUSIC ─────────────── -->
+            <article class="doc-article" id="cmd-music">
+                <div class="doc-header">
+                    <span class="material-symbols-outlined doc-icon">music_note</span>
+                    <h1>Music Commands</h1>
+                </div>
+                <div class="doc-callout doc-callout-warn">
+                    <span class="material-symbols-outlined">warning</span>
+                    <div>Requires <strong>FFmpeg</strong> and <strong>PyNaCl</strong> installed. See <a href="#ffmpeg">FFmpeg Setup</a>.</div>
+                </div>
+
+                <div class="doc-table-wrap">
+                    <table class="doc-table">
+                        <thead><tr><th>Command</th><th>Aliases</th><th>Description</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>!play &lt;query|url&gt;</code></td><td><code>p</code></td><td>Play from YouTube</td></tr>
+                            <tr><td><code>!skip</code></td><td><code>s</code> <code>next</code></td><td>Skip current song</td></tr>
+                            <tr><td><code>!pause</code></td><td>-</td><td>Pause playback</td></tr>
+                            <tr><td><code>!resume</code></td><td><code>unpause</code></td><td>Resume playback</td></tr>
+                            <tr><td><code>!queue</code></td><td><code>q</code> <code>np</code></td><td>View queue</td></tr>
+                            <tr><td><code>!volume &lt;0-100&gt;</code></td><td><code>vol</code></td><td>Set volume</td></tr>
+                            <tr><td><code>!loop</code></td><td>-</td><td>Toggle loop</td></tr>
+                            <tr><td><code>!leave</code></td><td><code>dc</code> <code>stop</code></td><td>Leave + clear queue</td></tr>
+                            <tr><td><code>!join</code></td><td><code>connect</code></td><td>Join voice channel</td></tr>
+                            <tr><td><code>!clearqueue</code></td><td><code>cq</code></td><td>Clear queue</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+
+            <!-- ── CMD: GIVEAWAYS ─────────── -->
+            <article class="doc-article" id="cmd-giveaways">
+                <div class="doc-header">
+                    <span class="material-symbols-outlined doc-icon">redeem</span>
+                    <h1>Giveaway Commands</h1>
+                </div>
+                <div class="doc-table-wrap">
+                    <table class="doc-table">
+                        <thead><tr><th>Command</th><th>Permission</th><th>Description</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>!gstart &lt;dur&gt; &lt;winners&gt; &lt;prize&gt;</code></td><td>Manage Guild</td><td>Start a giveaway</td></tr>
+                            <tr><td><code>!gend &lt;msg_id&gt;</code></td><td>Manage Guild</td><td>End giveaway early</td></tr>
+                            <tr><td><code>!greroll &lt;msg_id&gt;</code></td><td>Manage Guild</td><td>Reroll winner</td></tr>
+                            <tr><td><code>!glist</code></td><td>Everyone</td><td>List active giveaways</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h2>Duration Format</h2>
+                <div class="doc-code">
+                    <div class="doc-code-header"><span>examples</span></div>
+                    <pre><code>!gstart 1h 1 Steam Gift Card      # 1 hour, 1 winner
+!gstart 2d30m 3 Nitro Classic     # 2 days 30 min, 3 winners
+!gstart 30m 1 Custom Role         # 30 minutes, 1 winner</code></pre>
+                </div>
+            </article>
+
+            <!-- ── CMD: TICKETS ───────────── -->
+            <article class="doc-article" id="cmd-tickets">
+                <div class="doc-header">
+                    <span class="material-symbols-outlined doc-icon">confirmation_number</span>
+                    <h1>Ticket Commands</h1>
+                </div>
+                <div class="doc-table-wrap">
+                    <table class="doc-table">
+                        <thead><tr><th>Command</th><th>Permission</th><th>Description</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>!ticketsetup [category] [#log]</code></td><td>Administrator</td><td>Create ticket panel</td></tr>
+                            <tr><td><code>!close</code></td><td>Everyone</td><td>Close current ticket</td></tr>
+                            <tr><td><code>!tadd @user</code></td><td>Manage Messages</td><td>Add member to ticket</td></tr>
+                            <tr><td><code>!tremove @user</code></td><td>Manage Messages</td><td>Remove from ticket</td></tr>
+                            <tr><td><code>!claim</code></td><td>Manage Messages</td><td>Claim ticket</td></tr>
+                            <tr><td><code>!trename &lt;name&gt;</code></td><td>Manage Channels</td><td>Rename ticket channel</td></tr>
+                            <tr><td><code>!tinfo</code></td><td>Everyone</td><td>View ticket info</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+
+            <!-- ── CMD: POLLS ─────────────── -->
+            <article class="doc-article" id="cmd-polls">
+                <div class="doc-header">
+                    <span class="material-symbols-outlined doc-icon">poll</span>
+                    <h1>Poll Commands</h1>
+                </div>
+                <div class="doc-table-wrap">
+                    <table class="doc-table">
+                        <thead><tr><th>Command</th><th>Description</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>!poll "Question"</code></td><td>Quick yes/no poll</td></tr>
+                            <tr><td><code>!multipoll "Q" "A" "B" "C"</code></td><td>Multi-option poll (up to 9)</td></tr>
+                            <tr><td><code>!strawpoll "Q" "A" "B"</code></td><td>Live-updating straw poll</td></tr>
+                            <tr><td><code>!endpoll &lt;msg_id&gt;</code></td><td>End poll and show results</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+
+            <!-- ── CMD: UTILITY ───────────── -->
+            <article class="doc-article" id="cmd-utility">
+                <div class="doc-header">
+                    <span class="material-symbols-outlined doc-icon">build</span>
+                    <h1>Utility Commands</h1>
+                </div>
+                <div class="doc-table-wrap">
+                    <table class="doc-table">
+                        <thead><tr><th>Command</th><th>Aliases</th><th>Description</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>!help [cmd]</code></td><td><code>h</code></td><td>Paginated help menu</td></tr>
+                            <tr><td><code>!profile [@user]</code></td><td><code>p</code> <code>me</code></td><td>Profile card</td></tr>
+                            <tr><td><code>!serverinfo</code></td><td><code>si</code></td><td>Server details</td></tr>
+                            <tr><td><code>!userinfo [@user]</code></td><td><code>ui</code> <code>whois</code></td><td>User details</td></tr>
+                            <tr><td><code>!avatar [@user]</code></td><td><code>av</code> <code>pfp</code></td><td>View avatar</td></tr>
+                            <tr><td><code>!ping</code></td><td>-</td><td>Check latency</td></tr>
+                            <tr><td><code>!botinfo</code></td><td><code>about</code></td><td>Bot information</td></tr>
+                            <tr><td><code>!uptime</code></td><td>-</td><td>Bot uptime</td></tr>
+                            <tr><td><code>!invite</code></td><td>-</td><td>Bot invite link</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+
+            <!-- ── CMD: ADMIN ─────────────── -->
+            <article class="doc-article" id="cmd-admin">
+                <div class="doc-header">
+                    <span class="material-symbols-outlined doc-icon">admin_panel_settings</span>
+                    <h1>Admin Commands</h1>
+                </div>
+                <p>All commands require <strong>Administrator</strong> permission.</p>
+                <div class="doc-table-wrap">
+                    <table class="doc-table">
+                        <thead><tr><th>Command</th><th>Description</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>!setwelcome #ch</code></td><td>Set welcome channel</td></tr>
+                            <tr><td><code>!setleave #ch</code></td><td>Set leave channel</td></tr>
+                            <tr><td><code>!setlog #ch</code></td><td>Set mod log channel</td></tr>
+                            <tr><td><code>!setstarboard #ch [n]</code></td><td>Set starboard + threshold</td></tr>
+                            <tr><td><code>!setsuggestions #ch</code></td><td>Set suggestions channel</td></tr>
+                            <tr><td><code>!setlevelup #ch</code></td><td>Set level-up channel</td></tr>
+                            <tr><td><code>!setautorole @role</code></td><td>Auto role on join</td></tr>
+                            <tr><td><code>!setwelcomemsg &lt;text&gt;</code></td><td>Custom welcome message</td></tr>
+                            <tr><td><code>!setmaxwarnings &lt;n&gt;</code></td><td>Max warnings before auto-ban</td></tr>
+                            <tr><td><code>!additem &lt;name&gt; &lt;price&gt;</code></td><td>Add shop item</td></tr>
+                            <tr><td><code>!removeitem &lt;name&gt;</code></td><td>Remove shop item</td></tr>
+                            <tr><td><code>!addcoins @user &lt;n&gt;</code></td><td>Give coins</td></tr>
+                            <tr><td><code>!removecoins @user &lt;n&gt;</code></td><td>Take coins</td></tr>
+                            <tr><td><code>!setxp @user &lt;n&gt;</code></td><td>Set XP and level</td></tr>
+                            <tr><td><code>!resetuser @user</code></td><td>Reset all user data</td></tr>
+                            <tr><td><code>!announce #ch &lt;msg&gt;</code></td><td>Send announcement</td></tr>
+                            <tr><td><code>!settings</code></td><td>View all server settings</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+
+            <!-- ── SYSTEMS ────────────────── -->
+            <article class="doc-article" id="sys-automod">
+                <div class="doc-header">
+                    <span class="material-symbols-outlined doc-icon">smart_toy</span>
+                    <h1>AutoMod System</h1>
+                </div>
+                <p>Automatic moderation filters that run on every message.</p>
+                <div class="doc-table-wrap">
+                    <table class="doc-table">
+                        <thead><tr><th>Filter</th><th>Description</th><th>Config Key</th></tr></thead>
+                        <tbody>
+                            <tr><td>Anti-Link</td><td>Deletes messages containing URLs</td><td><code>antilink</code></td></tr>
+                            <tr><td>Anti-Spam</td><td>5+ messages in 5 seconds</td><td><code>antispam</code></td></tr>
+                            <tr><td>Banned Words</td><td>Configurable word filter</td><td><code>BANNED_WORDS</code></td></tr>
+                            <tr><td>Caps Filter</td><td>Messages with >70% caps</td><td><code>CAPS_THRESHOLD</code></td></tr>
+                            <tr><td>Mention Flood</td><td>More than 5 @mentions</td><td><code>MAX_MENTIONS</code></td></tr>
+                            <tr><td>Emoji Flood</td><td>More than 10 emojis</td><td><code>MAX_EMOJIS</code></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="doc-callout doc-callout-info">
+                    <span class="material-symbols-outlined">lightbulb</span>
+                    <div>Members with <strong>Manage Messages</strong> permission automatically bypass all AutoMod filters.</div>
+                </div>
+            </article>
+
+            <article class="doc-article" id="sys-starboard">
+                <div class="doc-header"><span class="material-symbols-outlined doc-icon">grade</span><h1>Starboard</h1></div>
+                <p>Automatically reposts messages that receive enough star reactions to a designated starboard channel.</p>
+                <div class="doc-code"><div class="doc-code-header"><span>setup</span></div><pre><code>!setstarboard #starboard 3
+# 3 = minimum stars required</code></pre></div>
+                <p>Features: live star count updates, image preservation, jump links, deduplication.</p>
+            </article>
+
+            <article class="doc-article" id="sys-welcome">
+                <div class="doc-header"><span class="material-symbols-outlined doc-icon">waving_hand</span><h1>Welcome System</h1></div>
+                <p>Send customized welcome and leave messages with template variables.</p>
+                <h2>Variables</h2>
+                <div class="doc-table-wrap">
+                    <table class="doc-table">
+                        <thead><tr><th>Variable</th><th>Output</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>{user}</code></td><td>@mention of the member</td></tr>
+                            <tr><td><code>{name}</code></td><td>Display name</td></tr>
+                            <tr><td><code>{server}</code></td><td>Server name</td></tr>
+                            <tr><td><code>{count}</code></td><td>Member count</td></tr>
+                            <tr><td><code>{id}</code></td><td>User ID</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+
+            <article class="doc-article" id="sys-afk">
+                <div class="doc-header"><span class="material-symbols-outlined doc-icon">bedtime</span><h1>AFK System</h1></div>
+                <p>Set an AFK status. When mentioned, the bot notifies others. AFK auto-removes when you send a message.</p>
+                <div class="doc-table-wrap">
+                    <table class="doc-table">
+                        <thead><tr><th>Command</th><th>Description</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>!afk [message]</code></td><td>Set AFK with optional message</td></tr>
+                            <tr><td><code>!afkstatus [@user]</code></td><td>Check AFK status</td></tr>
+                            <tr><td><code>!afklist</code></td><td>List all AFK members</td></tr>
+                            <tr><td><code>!afkclear @user</code></td><td>Clear someone's AFK (staff)</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+
+            <article class="doc-article" id="sys-suggestions">
+                <div class="doc-header"><span class="material-symbols-outlined doc-icon">lightbulb</span><h1>Suggestions</h1></div>
+                <p>Submit and manage suggestions with status tracking.</p>
+                <div class="doc-table-wrap">
+                    <table class="doc-table">
+                        <thead><tr><th>Command</th><th>Description</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>!suggest &lt;text&gt;</code></td><td>Submit a suggestion</td></tr>
+                            <tr><td><code>!approve &lt;id&gt; [response]</code></td><td>Approve suggestion</td></tr>
+                            <tr><td><code>!deny &lt;id&gt; [response]</code></td><td>Deny suggestion</td></tr>
+                            <tr><td><code>!consider &lt;id&gt;</code></td><td>Mark as under consideration</td></tr>
+                            <tr><td><code>!implement &lt;id&gt;</code></td><td>Mark as implemented</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+
+            <article class="doc-article" id="sys-reactionroles">
+                <div class="doc-header"><span class="material-symbols-outlined doc-icon">add_reaction</span><h1>Reaction Roles</h1></div>
+                <div class="doc-table-wrap">
+                    <table class="doc-table">
+                        <thead><tr><th>Command</th><th>Description</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>!rrpanel [title]</code></td><td>Create a role selection panel</td></tr>
+                            <tr><td><code>!rradd &lt;msg_id&gt; &lt;emoji&gt; @role</code></td><td>Add reaction role</td></tr>
+                            <tr><td><code>!rrremove &lt;msg_id&gt; &lt;emoji&gt;</code></td><td>Remove reaction role</td></tr>
+                            <tr><td><code>!rrlist</code></td><td>List all reaction roles</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+
+            <article class="doc-article" id="sys-reminders">
+                <div class="doc-header"><span class="material-symbols-outlined doc-icon">alarm</span><h1>Reminders</h1></div>
+                <div class="doc-table-wrap">
+                    <table class="doc-table">
+                        <thead><tr><th>Command</th><th>Description</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>!remind &lt;duration&gt; &lt;message&gt;</code></td><td>Set a reminder</td></tr>
+                            <tr><td><code>!reminders</code></td><td>List active reminders</td></tr>
+                            <tr><td><code>!cancelreminder &lt;id&gt;</code></td><td>Cancel a reminder</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>Duration format: <code>30m</code>, <code>1h30m</code>, <code>2d</code>, <code>1d12h30m</code></p>
+            </article>
+
+            <article class="doc-article" id="sys-logging">
+                <div class="doc-header"><span class="material-symbols-outlined doc-icon">description</span><h1>Event Logging</h1></div>
+                <p>Set a log channel with <code>!setlog #channel</code>. The following events are logged:</p>
+                <div class="doc-check-list">
+                    <div class="doc-check"><span class="material-symbols-outlined pastel-green">check_circle</span> Message deleted</div>
+                    <div class="doc-check"><span class="material-symbols-outlined pastel-green">check_circle</span> Message edited</div>
+                    <div class="doc-check"><span class="material-symbols-outlined pastel-green">check_circle</span> Member joined</div>
+                    <div class="doc-check"><span class="material-symbols-outlined pastel-green">check_circle</span> Member left</div>
+                    <div class="doc-check"><span class="material-symbols-outlined pastel-green">check_circle</span> Nickname changed</div>
+                    <div class="doc-check"><span class="material-symbols-outlined pastel-green">check_circle</span> Roles added/removed</div>
+                    <div class="doc-check"><span class="material-symbols-outlined pastel-green">check_circle</span> Role created/deleted</div>
+                    <div class="doc-check"><span class="material-symbols-outlined pastel-green">check_circle</span> Channel created/deleted</div>
+                    <div class="doc-check"><span class="material-symbols-outlined pastel-green">check_circle</span> Voice join/leave/move</div>
+                    <div class="doc-check"><span class="material-symbols-outlined pastel-green">check_circle</span> Member banned/unbanned</div>
+                    <div class="doc-check"><span class="material-symbols-outlined pastel-green">check_circle</span> All moderation actions</div>
+                </div>
+            </article>
+
+            <article class="doc-article" id="sys-tags">
+                <div class="doc-header"><span class="material-symbols-outlined doc-icon">label</span><h1>Tags</h1></div>
+                <div class="doc-table-wrap">
+                    <table class="doc-table">
+                        <thead><tr><th>Command</th><th>Description</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>/tag create &lt;name&gt; &lt;content&gt;</code></td><td>Create a tag</td></tr>
+                            <tr><td><code>/tag get &lt;name&gt;</code></td><td>Get a tag</td></tr>
+                            <tr><td><code>/tag list</code></td><td>List all tags</td></tr>
+                            <tr><td><code>/tag delete &lt;name&gt;</code></td><td>Delete a tag (owner/admin)</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+
+            <!-- ── DATABASE ───────────────── -->
+            <article class="doc-article" id="database">
+                <div class="doc-header">
+                    <span class="material-symbols-outlined doc-icon">database</span>
+                    <h1>Database Schema</h1>
+                </div>
+                <p>DiBot uses SQLite via <code>aiosqlite</code>. The database is auto-created at <code>database/bot.db</code>.</p>
+                <div class="doc-table-wrap">
+                    <table class="doc-table">
+                        <thead><tr><th>Table</th><th>Purpose</th><th>Key Columns</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>users</code></td><td>XP, coins, bank, warnings, AFK</td><td>user_id, guild_id</td></tr>
+                            <tr><td><code>guild_settings</code></td><td>Server configuration</td><td>guild_id</td></tr>
+                            <tr><td><code>warnings</code></td><td>Warning history</td><td>user_id, reason, moderator</td></tr>
+                            <tr><td><code>mod_logs</code></td><td>Moderation action log</td><td>action, target_id, moderator_id</td></tr>
+                            <tr><td><code>giveaways</code></td><td>Active/ended giveaways</td><td>message_id, prize, end_time</td></tr>
+                            <tr><td><code>giveaway_entries</code></td><td>Giveaway participants</td><td>giveaway_id, user_id</td></tr>
+                            <tr><td><code>tickets</code></td><td>Support tickets</td><td>channel_id, user_id, status</td></tr>
+                            <tr><td><code>shop</code></td><td>Economy shop items</td><td>item_name, price, role_id</td></tr>
+                            <tr><td><code>inventory</code></td><td>User inventories</td><td>user_id, item_name, quantity</td></tr>
+                            <tr><td><code>starboard</code></td><td>Starred messages</td><td>original_msg_id, star_count</td></tr>
+                            <tr><td><code>reminders</code></td><td>Scheduled reminders</td><td>user_id, remind_at, message</td></tr>
+                            <tr><td><code>suggestions</code></td><td>Submitted suggestions</td><td>content, status, response</td></tr>
+                            <tr><td><code>reaction_roles</code></td><td>Reaction role bindings</td><td>message_id, emoji, role_id</td></tr>
+                            <tr><td><code>level_roles</code></td><td>Level reward roles</td><td>level, role_id</td></tr>
+                            <tr><td><code>tags</code></td><td>Custom tags</td><td>name, content, uses</td></tr>
+                            <tr><td><code>temp_bans</code></td><td>Temporary bans</td><td>user_id, unban_at</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+
+            <!-- ── API ────────────────────── -->
+            <article class="doc-article" id="api">
+                <div class="doc-header">
+                    <span class="material-symbols-outlined doc-icon">api</span>
+                    <h1>REST API</h1>
+                </div>
+                <p>The dashboard exposes these JSON API endpoints:</p>
+                <div class="doc-table-wrap">
+                    <table class="doc-table">
+                        <thead><tr><th>Method</th><th>Endpoint</th><th>Auth</th><th>Description</th></tr></thead>
+                        <tbody>
+                            <tr><td><span class="badge badge-get">GET</span></td><td><code>/api/botstats</code></td><td>No</td><td>Bot guilds, users, latency</td></tr>
+                            <tr><td><span class="badge badge-get">GET</span></td><td><code>/api/stats/&lt;guild_id&gt;</code></td><td>Yes</td><td>Guild statistics</td></tr>
+                            <tr><td><span class="badge badge-get">GET</span></td><td><code>/api/leaderboard/&lt;guild_id&gt;</code></td><td>No</td><td>XP leaderboard</td></tr>
+                            <tr><td><span class="badge badge-get">GET</span></td><td><code>/api/settings/&lt;guild_id&gt;</code></td><td>Yes</td><td>Get guild settings</td></tr>
+                            <tr><td><span class="badge badge-post">POST</span></td><td><code>/api/settings/&lt;guild_id&gt;</code></td><td>Yes</td><td>Update guild settings</td></tr>
+                            <tr><td><span class="badge badge-get">GET</span></td><td><code>/api/users/&lt;guild_id&gt;</code></td><td>Yes</td><td>All tracked users</td></tr>
+                            <tr><td><span class="badge badge-post">POST</span></td><td><code>/api/coins/&lt;guild_id&gt;/&lt;user_id&gt;</code></td><td>Yes</td><td>Add/remove coins</td></tr>
+                            <tr><td><span class="badge badge-get">GET</span></td><td><code>/api/giveaways/&lt;guild_id&gt;</code></td><td>Yes</td><td>Active giveaways</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+
+            <!-- ── PROJECT STRUCTURE ──────── -->
+            <article class="doc-article" id="project-structure">
+                <div class="doc-header">
+                    <span class="material-symbols-outlined doc-icon">folder</span>
+                    <h1>Project Structure</h1>
+                </div>
+                <div class="doc-code">
+                    <div class="doc-code-header"><span>tree</span></div>
+                    <pre><code>DiBot/
+├── bot.py                  # Entry point
+├── config.py               # Configuration
+├── .env                    # Secrets
+├── requirements.txt        # Dependencies
+├── cogs/
+│   ├── events.py           # Event handlers + tasks
+│   ├── slash_commands.py   # All slash commands
+│   ├── moderation.py       # Mod commands
+│   ├── economy.py          # Economy system
+│   ├── leveling.py         # XP + levels
+│   ├── fun.py              # Fun commands
+│   ├── utility.py          # Utility commands
+│   ├── admin.py            # Admin controls
+│   ├── giveaways.py        # Giveaway system
+│   ├── tickets.py          # Ticket system
+│   ├── music.py            # Music player
+│   ├── automod.py          # Auto-moderation
+│   ├── starboard.py        # Starboard
+│   ├── polls.py            # Poll system
+│   ├── reactionroles.py    # Reaction roles
+│   ├── afk.py              # AFK system
+│   ├── suggestions.py      # Suggestions
+│   ├── logging.py          # Event logging
+│   └── welcomer.py         # Welcome/leave
+├── database/
+│   └── db.py               # Database manager
+├── utils/
+│   ├── embeds.py           # Embed templates
+│   ├── helpers.py          # Utility functions
+│   ├── views.py            # UI components
+│   └── paginator.py        # Pagination
+└── dashboard/
+    ├── app.py              # Web app factory
+    ├── routes/
+    │   ├── auth.py         # OAuth2
+    │   ├── api.py          # REST API
+    │   └── views.py        # Page routes
+    ├── templates/          # HTML templates
+    └── static/             # CSS + JS</code></pre>
+                </div>
+            </article>
+
+            <!-- ── BACKGROUND TASKS ───────── -->
+            <article class="doc-article" id="background-tasks">
+                <div class="doc-header">
+                    <span class="material-symbols-outlined doc-icon">schedule</span>
+                    <h1>Background Tasks</h1>
+                </div>
+                <div class="doc-table-wrap">
+                    <table class="doc-table">
+                        <thead><tr><th>Task</th><th>Interval</th><th>Description</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>check_reminders</code></td><td>30 seconds</td><td>Fire due reminders</td></tr>
+                            <tr><td><code>check_giveaways</code></td><td>15 seconds</td><td>End expired giveaways</td></tr>
+                            <tr><td><code>check_temp_bans</code></td><td>60 seconds</td><td>Unban expired temp bans</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+
+            <!-- ── DEPENDENCIES ───────────── -->
+            <article class="doc-article" id="dependencies">
+                <div class="doc-header">
+                    <span class="material-symbols-outlined doc-icon">inventory_2</span>
+                    <h1>Dependencies</h1>
+                </div>
+                <div class="doc-table-wrap">
+                    <table class="doc-table">
+                        <thead><tr><th>Package</th><th>Version</th><th>Purpose</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>discord.py</code></td><td>2.3.2</td><td>Core Discord library</td></tr>
+                            <tr><td><code>python-dotenv</code></td><td>1.0.0</td><td>Environment variables</td></tr>
+                            <tr><td><code>aiosqlite</code></td><td>0.19.0</td><td>Async SQLite</td></tr>
+                            <tr><td><code>yt-dlp</code></td><td>2023.11</td><td>YouTube download (music)</td></tr>
+                            <tr><td><code>PyNaCl</code></td><td>1.5.0</td><td>Voice encryption</td></tr>
+                            <tr><td><code>aiohttp</code></td><td>3.9.1</td><td>HTTP requests</td></tr>
+                            <tr><td><code>Pillow</code></td><td>10.1.0</td><td>Image processing</td></tr>
+                            <tr><td><code>quart</code></td><td>0.19.4</td><td>Async web framework</td></tr>
+                            <tr><td><code>quart-cors</code></td><td>0.7.0</td><td>CORS support</td></tr>
+                            <tr><td><code>jinja2</code></td><td>3.1.2</td><td>HTML templating</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+
+            <!-- ── FAQ ────────────────────── -->
+            <article class="doc-article" id="faq">
+                <div class="doc-header">
+                    <span class="material-symbols-outlined doc-icon">help</span>
+                    <h1>FAQ</h1>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" data-faq="faq1">
+                        <span>Bot doesn't respond to commands</span>
+                        <span class="material-symbols-outlined faq-arrow">expand_more</span>
+                    </button>
+                    <div class="faq-answer" id="faq1">
+                        <p>Check that Message Content Intent is enabled in the Developer Portal. Verify the bot has permissions in the channel and your prefix matches the one in <code>.env</code>.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" data-faq="faq2">
+                        <span>Music commands don't work</span>
+                        <span class="material-symbols-outlined faq-arrow">expand_more</span>
+                    </button>
+                    <div class="faq-answer" id="faq2">
+                        <p>Install FFmpeg and ensure it's in your system PATH. Run <code>ffmpeg -version</code> to verify. Also ensure <code>yt-dlp</code> and <code>PyNaCl</code> are installed.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" data-faq="faq3">
+                        <span>Dashboard OAuth2 not working</span>
+                        <span class="material-symbols-outlined faq-arrow">expand_more</span>
+                    </button>
+                    <div class="faq-answer" id="faq3">
+                        <p>In Developer Portal, ensure the redirect URL <code>http://localhost:5000/callback</code> is added under OAuth2 Redirects. Make sure <code>CLIENT_ID</code>, <code>CLIENT_SECRET</code>, and <code>REDIRECT_URI</code> match exactly.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" data-faq="faq4">
+                        <span>Slash commands not showing up</span>
+                        <span class="material-symbols-outlined faq-arrow">expand_more</span>
+                    </button>
+                    <div class="faq-answer" id="faq4">
+                        <p>Global slash commands can take up to 1 hour to sync. Ensure the bot invite URL includes the <code>applications.commands</code> scope.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" data-faq="faq5">
+                        <span>Bot can't mute or kick members</span>
+                        <span class="material-symbols-outlined faq-arrow">expand_more</span>
+                    </button>
+                    <div class="faq-answer" id="faq5">
+                        <p>The bot's role must be <strong>higher</strong> than the target member's highest role. Check role hierarchy in Server Settings.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ── TROUBLESHOOTING ────────── -->
+            <article class="doc-article" id="troubleshooting">
+                <div class="doc-header">
+                    <span class="material-symbols-outlined doc-icon">bug_report</span>
+                    <h1>Troubleshooting</h1>
+                </div>
+                <div class="doc-table-wrap">
+                    <table class="doc-table">
+                        <thead><tr><th>Issue</th><th>Solution</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>ModuleNotFoundError</code></td><td>Run <code>pip install -r requirements.txt</code></td></tr>
+                            <tr><td><code>LoginFailure</code></td><td>Check your <code>DISCORD_TOKEN</code> in <code>.env</code></td></tr>
+                            <tr><td><code>Forbidden</code> errors</td><td>Check bot role hierarchy and channel permissions</td></tr>
+                            <tr><td>Database locked</td><td>Only run one instance of the bot at a time</td></tr>
+                            <tr><td>Slash commands missing</td><td>Wait up to 1 hour for global sync</td></tr>
+                            <tr><td>Dashboard 404</td><td>Ensure <code>REDIRECT_URI</code> matches Developer Portal</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+
+            <!-- ── CONTRIBUTING ────────────── -->
+            <article class="doc-article" id="contributing">
+                <div class="doc-header">
+                    <span class="material-symbols-outlined doc-icon">handshake</span>
+                    <h1>Contributing</h1>
+                </div>
+                <ol class="doc-steps">
+                    <li>Fork the repository</li>
+                    <li>Create a feature branch: <code>git checkout -b feature/my-feature</code></li>
+                    <li>Make your changes following the existing code style</li>
+                    <li>Test thoroughly before committing</li>
+                    <li>Commit: <code>git commit -m "Add my feature"</code></li>
+                    <li>Push: <code>git push origin feature/my-feature</code></li>
+                    <li>Open a Pull Request on GitHub</li>
+                </ol>
+                <div class="doc-callout doc-callout-info">
+                    <span class="material-symbols-outlined">lightbulb</span>
+                    <div>Join the <a href="https://discord.gg/yxbEGDnvac" target="_blank">Discord server</a> to discuss features and get help with development.</div>
+                </div>
+            </article>
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer docs-footer">
+        <div class="footer-inner">
+            <div class="footer-brand"><span class="material-symbols-outlined">bolt</span><span>DiBot</span></div>
+            <div class="footer-links">
+                <a href="https://github.com/Compromisee/DiBot" target="_blank">GitHub</a>
+                <a href="https://discord.gg/yxbEGDnvac" target="_blank">Discord</a>
+                <a href="/">Home</a>
+            </div>
+            <p class="footer-copy">Built with Python by <a href="https://github.com/Compromisee" target="_blank">Compromise</a></p>
+        </div>
+    </footer>
+
+    <script src="js/particles.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
