@@ -4,464 +4,476 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DiBot — The Ultimate Discord Bot</title>
-    <meta name="description" content="A powerful, open-source Discord bot with 94+ features. Economy, music, moderation, giveaways, and more.">
-    <meta name="theme-color" content="#0a0a0f">
+    <meta name="description" content="A powerful, open-source Discord bot with 94+ features.">
+    <meta name="theme-color" content="#0c0c0c">
 
-    <!-- Open Graph -->
     <meta property="og:title" content="DiBot — The Ultimate Discord Bot">
     <meta property="og:description" content="94+ features. Economy, Music, Moderation, Giveaways, Tickets, AutoMod, and a Web Dashboard.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://compromisee.github.io/DiBot">
-    <meta property="og:image" content="https://cdn.discordapp.com/embed/avatars/0.png">
 
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-
-    <!-- Noto Color Emoji (Google Emoji) -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
 
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <!-- ═══════════════════════════════════ -->
-    <!--  DOT GRID BACKGROUND               -->
-    <!-- ═══════════════════════════════════ -->
-    <div class="dot-grid" id="dotGrid"></div>
-    <div class="gradient-orb gradient-orb-1"></div>
-    <div class="gradient-orb gradient-orb-2"></div>
-    <div class="gradient-orb gradient-orb-3"></div>
+    <!-- Particles Canvas -->
+    <canvas id="particles" class="particles-canvas"></canvas>
 
-    <!-- ═══════════════════════════════════ -->
-    <!--  CURSOR GLOW                        -->
-    <!-- ═══════════════════════════════════ -->
-    <div class="cursor-glow" id="cursorGlow"></div>
+    <!-- Grid Overlay -->
+    <div class="grid-overlay"></div>
 
-    <!-- ═══════════════════════════════════ -->
-    <!--  NAVBAR                             -->
-    <!-- ═══════════════════════════════════ -->
+    <!-- ══════════════════════════════ -->
+    <!--  NAVBAR                       -->
+    <!-- ══════════════════════════════ -->
     <nav class="nav" id="nav">
         <div class="nav-inner">
-            <a href="#" class="nav-brand">
-                <span class="brand-icon">⚡</span>
+            <a href="/" class="nav-brand">
+                <span class="material-symbols-outlined brand-icon">bolt</span>
                 <span class="brand-text">DiBot</span>
             </a>
             <div class="nav-links">
                 <a href="#features" class="nav-link">Features</a>
                 <a href="#commands" class="nav-link">Commands</a>
-                <a href="#terminal" class="nav-link">Demo</a>
-                <a href="#stats" class="nav-link">Stats</a>
+                <a href="#quickstart" class="nav-link">Setup</a>
+                <a href="docs.html" class="nav-link">Docs</a>
             </div>
             <div class="nav-actions">
-                <a href="https://discord.gg/yxbEGDnvac" target="_blank" class="btn btn-ghost">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+                <a href="https://discord.gg/yxbEGDnvac" target="_blank" rel="noopener" class="btn btn-outline">
+                    <span class="material-symbols-outlined btn-icon">forum</span>
                     Discord
                 </a>
-                <a href="https://github.com/Compromisee/DiBot" target="_blank" class="btn btn-primary">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                <a href="https://github.com/Compromisee/DiBot" target="_blank" rel="noopener" class="btn btn-fill">
+                    <span class="material-symbols-outlined btn-icon">code</span>
                     GitHub
                 </a>
             </div>
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle Menu">
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
                 <span></span><span></span><span></span>
             </button>
         </div>
     </nav>
 
-    <!-- ═══════════════════════════════════ -->
-    <!--  MOBILE MENU                        -->
-    <!-- ═══════════════════════════════════ -->
-    <div class="mobile-menu" id="mobileMenu">
-        <a href="#features" class="mobile-link">Features</a>
-        <a href="#commands" class="mobile-link">Commands</a>
-        <a href="#terminal" class="mobile-link">Demo</a>
-        <a href="#stats" class="mobile-link">Stats</a>
-        <div class="mobile-actions">
-            <a href="https://discord.gg/yxbEGDnvac" target="_blank" class="btn btn-ghost btn-full">Discord</a>
-            <a href="https://github.com/Compromisee/DiBot" target="_blank" class="btn btn-primary btn-full">GitHub</a>
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer">
+        <a href="#features" class="drawer-link">Features</a>
+        <a href="#commands" class="drawer-link">Commands</a>
+        <a href="#quickstart" class="drawer-link">Setup</a>
+        <a href="docs.html" class="drawer-link">Docs</a>
+        <div class="drawer-actions">
+            <a href="https://discord.gg/yxbEGDnvac" target="_blank" class="btn btn-outline btn-block">Discord</a>
+            <a href="https://github.com/Compromisee/DiBot" target="_blank" class="btn btn-fill btn-block">GitHub</a>
         </div>
     </div>
 
-    <!-- ═══════════════════════════════════ -->
-    <!--  HERO                               -->
-    <!-- ═══════════════════════════════════ -->
-    <section class="hero" id="hero">
-        <div class="hero-badge animate-on-scroll">
-            <span class="badge-dot"></span>
-            Open Source & Free Forever
+    <!-- ══════════════════════════════ -->
+    <!--  HERO                         -->
+    <!-- ══════════════════════════════ -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-label reveal" data-delay="0">
+                <span class="material-symbols-outlined">verified</span>
+                Open Source &mdash; Free Forever
+            </div>
+
+            <h1 class="hero-title reveal" data-delay="1">
+                <span class="line">The only bot</span>
+                <span class="line accent-line">your server needs.</span>
+            </h1>
+
+            <p class="hero-subtitle reveal" data-delay="2">
+                94+ features packed into one bot. Moderation, economy, music,
+                giveaways, tickets, leveling, and a web dashboard. No paywalls.
+            </p>
+
+            <div class="hero-buttons reveal" data-delay="3">
+                <a href="https://github.com/Compromisee/DiBot" target="_blank" class="btn btn-fill btn-lg">
+                    <span class="material-symbols-outlined btn-icon">rocket_launch</span>
+                    Get Started
+                </a>
+                <a href="docs.html" class="btn btn-outline btn-lg">
+                    <span class="material-symbols-outlined btn-icon">menu_book</span>
+                    Read Docs
+                </a>
+            </div>
+
+            <div class="hero-chips reveal" data-delay="4">
+                <span class="chip"><span class="material-symbols-outlined">terminal</span> Python 3.11+</span>
+                <span class="chip"><span class="material-symbols-outlined">database</span> SQLite</span>
+                <span class="chip"><span class="material-symbols-outlined">smart_toy</span> discord.py</span>
+                <span class="chip"><span class="material-symbols-outlined">dashboard</span> Web Panel</span>
+            </div>
         </div>
 
-        <h1 class="hero-title animate-on-scroll">
-            <span class="title-line">The only Discord bot</span>
-            <span class="title-line title-gradient">you'll ever need.</span>
-        </h1>
-
-        <p class="hero-desc animate-on-scroll">
-            94+ features. Slash commands. Economy. Music. Moderation.
-            Giveaways. Tickets. AutoMod. Web Dashboard. All in one.
-        </p>
-
-        <div class="hero-actions animate-on-scroll">
-            <a href="https://github.com/Compromisee/DiBot" target="_blank" class="btn btn-primary btn-lg">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                View on GitHub
-            </a>
-            <a href="https://discord.gg/yxbEGDnvac" target="_blank" class="btn btn-ghost btn-lg">
-                Join Discord
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
-        </div>
-
-        <div class="hero-tech animate-on-scroll">
-            <div class="tech-pill">🐍 Python 3.11+</div>
-            <div class="tech-pill">📦 discord.py 2.3</div>
-            <div class="tech-pill">🗄️ SQLite</div>
-            <div class="tech-pill">🌐 Web Dashboard</div>
+        <!-- Hero Terminal -->
+        <div class="hero-terminal reveal" data-delay="5">
+            <div class="term-bar">
+                <div class="term-dots"><span></span><span></span><span></span></div>
+                <span class="term-title">terminal</span>
+                <button class="term-copy" id="heroCopy" aria-label="Copy">
+                    <span class="material-symbols-outlined">content_copy</span>
+                </button>
+            </div>
+            <div class="term-body">
+                <div class="term-line"><span class="term-prompt">$</span> <span class="typed" data-text="git clone https://github.com/Compromisee/DiBot.git"></span></div>
+                <div class="term-line term-muted"><span class="material-symbols-outlined term-icon">check_circle</span> Cloned successfully</div>
+                <div class="term-line"><span class="term-prompt">$</span> <span class="typed" data-text="cd DiBot && pip install -r requirements.txt"></span></div>
+                <div class="term-line term-muted"><span class="material-symbols-outlined term-icon">check_circle</span> 14 packages installed</div>
+                <div class="term-line"><span class="term-prompt">$</span> <span class="typed" data-text="python bot.py"></span></div>
+                <div class="term-line term-success"><span class="material-symbols-outlined term-icon">bolt</span> DiBot is ONLINE &mdash; 94+ features loaded</div>
+            </div>
         </div>
     </section>
 
-    <!-- ═══════════════════════════════════ -->
-    <!--  FEATURES                           -->
-    <!-- ═══════════════════════════════════ -->
+    <!-- ══════════════════════════════ -->
+    <!--  STATS BAR                    -->
+    <!-- ══════════════════════════════ -->
+    <section class="stats-bar reveal" data-delay="0">
+        <div class="stat-item">
+            <span class="stat-num" data-count="94">0</span><span class="stat-plus">+</span>
+            <span class="stat-label">Features</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+            <span class="stat-num" data-count="50">0</span><span class="stat-plus">+</span>
+            <span class="stat-label">Slash Commands</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+            <span class="stat-num" data-count="20">0</span><span class="stat-plus">+</span>
+            <span class="stat-label">Modules</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+            <span class="stat-num" data-count="0">0</span><span class="stat-plus">$</span>
+            <span class="stat-label">Cost</span>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════ -->
+    <!--  FEATURES                     -->
+    <!-- ══════════════════════════════ -->
     <section class="section" id="features">
-        <div class="section-header animate-on-scroll">
-            <span class="section-label">Features</span>
-            <h2 class="section-title">Everything built in.</h2>
-            <p class="section-desc">No premium. No paywalls. No missing features. Just deploy and go.</p>
+        <div class="section-head reveal">
+            <span class="section-tag"><span class="material-symbols-outlined">auto_awesome</span> Features</span>
+            <h2 class="section-title">Everything you need. Nothing you don't.</h2>
+            <p class="section-sub">Every feature is free, self-hosted, and fully customizable.</p>
         </div>
 
-        <div class="features-grid">
-
-            <div class="feature-card animate-on-scroll" data-delay="0">
-                <div class="feature-icon">🛡️</div>
-                <h3>Moderation</h3>
-                <p>Kick, ban, tempban, mute, warn, purge, lockdown, slowmode, role management, and auto-ban on max warnings.</p>
-                <span class="feature-count">20+ commands</span>
-            </div>
-
-            <div class="feature-card animate-on-scroll" data-delay="1">
-                <div class="feature-icon">💰</div>
-                <h3>Economy</h3>
-                <p>Wallet & bank, daily/work rewards, gambling, rob, slots, shop system, inventory, and reputation points.</p>
-                <span class="feature-count">15+ commands</span>
-            </div>
-
-            <div class="feature-card animate-on-scroll" data-delay="2">
-                <div class="feature-icon">⭐</div>
-                <h3>Leveling & XP</h3>
-                <p>XP per message, level-up notifications, rank cards with progress bars, leaderboards, and level role rewards.</p>
-                <span class="feature-count">Auto + 5 commands</span>
-            </div>
-
-            <div class="feature-card animate-on-scroll" data-delay="3">
-                <div class="feature-icon">🎵</div>
-                <h3>Music Player</h3>
-                <p>YouTube playback, queue system, skip, pause, resume, volume control, loop mode, and auto-reconnect.</p>
-                <span class="feature-count">10+ commands</span>
-            </div>
-
-            <div class="feature-card animate-on-scroll" data-delay="4">
-                <div class="feature-icon">🎉</div>
-                <h3>Giveaways</h3>
-                <p>Button-based entry, multi-winner support, auto-end background task, reroll, and live entry counter.</p>
-                <span class="feature-count">4 commands</span>
-            </div>
-
-            <div class="feature-card animate-on-scroll" data-delay="5">
-                <div class="feature-icon">🎫</div>
-                <h3>Tickets</h3>
-                <p>Interactive button panel, auto-channel creation, claim system, add/remove members, and ticket logging.</p>
-                <span class="feature-count">7 commands</span>
-            </div>
-
-            <div class="feature-card animate-on-scroll" data-delay="6">
-                <div class="feature-icon">🤖</div>
-                <h3>AutoMod</h3>
-                <p>Anti-spam, anti-link, caps filter, mention flood protection, banned words, and emoji flood detection.</p>
-                <span class="feature-count">6 filters</span>
-            </div>
-
-            <div class="feature-card animate-on-scroll" data-delay="7">
-                <div class="feature-icon">📋</div>
-                <h3>Logging</h3>
-                <p>Message edits/deletes, member join/leave, role changes, channel events, voice activity, and ban/unban tracking.</p>
-                <span class="feature-count">15+ events</span>
-            </div>
-
-            <div class="feature-card animate-on-scroll" data-delay="8">
-                <div class="feature-icon">🌐</div>
-                <h3>Web Dashboard</h3>
-                <p>Discord OAuth2 login, server management, leaderboards, live settings editor, and REST API endpoints.</p>
-                <span class="feature-count">8 API routes</span>
-            </div>
-
-            <div class="feature-card animate-on-scroll" data-delay="9">
-                <div class="feature-icon">🎮</div>
-                <h3>Games & Fun</h3>
-                <p>Tic-Tac-Toe, trivia, number guessing, 8ball, memes, jokes, roasts, RPS, Would You Rather, and more.</p>
-                <span class="feature-count">20+ commands</span>
-            </div>
-
-            <div class="feature-card animate-on-scroll" data-delay="10">
-                <div class="feature-icon">💡</div>
-                <h3>Suggestions & Polls</h3>
-                <p>Submit and manage suggestions with status tracking. Quick polls, multi-option polls, and live straw polls.</p>
-                <span class="feature-count">10+ commands</span>
-            </div>
-
-            <div class="feature-card animate-on-scroll" data-delay="11">
-                <div class="feature-icon">⚙️</div>
-                <h3>And More...</h3>
-                <p>Reaction roles, AFK system, reminders, starboard, tags, welcome/leave messages, and full admin controls.</p>
-                <span class="feature-count">∞ possibilities</span>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- ═══════════════════════════════════ -->
-    <!--  TERMINAL DEMO                      -->
-    <!-- ═══════════════════════════════════ -->
-    <section class="section" id="terminal">
-        <div class="section-header animate-on-scroll">
-            <span class="section-label">Quick Start</span>
-            <h2 class="section-title">Up and running in minutes.</h2>
-            <p class="section-desc">Clone, configure, and deploy. No complicated setup required.</p>
-        </div>
-
-        <div class="terminal animate-on-scroll">
-            <div class="terminal-header">
-                <div class="terminal-dots">
-                    <span class="dot dot-red"></span>
-                    <span class="dot dot-yellow"></span>
-                    <span class="dot dot-green"></span>
+        <div class="feature-grid">
+            <div class="f-card reveal" data-delay="0">
+                <div class="f-card-head">
+                    <span class="material-symbols-outlined f-icon pastel-red">shield</span>
+                    <h3>Moderation</h3>
                 </div>
-                <span class="terminal-title">~/DiBot</span>
-                <div class="terminal-actions">
-                    <button class="terminal-copy" id="terminalCopy" title="Copy commands">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
-                    </button>
-                </div>
+                <p>Kick, ban, tempban, mute, warn, purge, lockdown, slowmode, role management, nickname control, and auto-ban on max warnings.</p>
+                <div class="f-footer"><span class="material-symbols-outlined">terminal</span> 20+ commands</div>
             </div>
-            <div class="terminal-body" id="terminalBody">
-                <div class="terminal-line" data-delay="0">
-                    <span class="terminal-prompt">$</span>
-                    <span class="terminal-cmd" data-text="git clone https://github.com/Compromisee/DiBot.git"></span>
+
+            <div class="f-card reveal" data-delay="1">
+                <div class="f-card-head">
+                    <span class="material-symbols-outlined f-icon pastel-yellow">paid</span>
+                    <h3>Economy</h3>
                 </div>
-                <div class="terminal-line terminal-output" data-delay="1">
-                    <span>Cloning into 'DiBot'... <span class="terminal-success">done.</span></span>
+                <p>Wallet, bank, daily rewards, work jobs, gambling, robbery, slot machine, server shop, inventory system, and reputation points.</p>
+                <div class="f-footer"><span class="material-symbols-outlined">terminal</span> 15+ commands</div>
+            </div>
+
+            <div class="f-card reveal" data-delay="2">
+                <div class="f-card-head">
+                    <span class="material-symbols-outlined f-icon pastel-purple">star</span>
+                    <h3>Leveling & XP</h3>
                 </div>
-                <div class="terminal-line" data-delay="2">
-                    <span class="terminal-prompt">$</span>
-                    <span class="terminal-cmd" data-text="cd DiBot && pip install -r requirements.txt"></span>
+                <p>Earn XP per message, level-up notifications, visual rank cards with progress bars, leaderboards, and automatic level role rewards.</p>
+                <div class="f-footer"><span class="material-symbols-outlined">terminal</span> 5 commands + auto</div>
+            </div>
+
+            <div class="f-card reveal" data-delay="3">
+                <div class="f-card-head">
+                    <span class="material-symbols-outlined f-icon pastel-green">music_note</span>
+                    <h3>Music Player</h3>
                 </div>
-                <div class="terminal-line terminal-output" data-delay="3">
-                    <span>Installing <span class="terminal-highlight">14 packages</span>... <span class="terminal-success">✓</span></span>
+                <p>YouTube playback, queue system, skip, pause, resume, volume control, loop mode, clear queue, and auto-reconnect on drops.</p>
+                <div class="f-footer"><span class="material-symbols-outlined">terminal</span> 10+ commands</div>
+            </div>
+
+            <div class="f-card reveal" data-delay="4">
+                <div class="f-card-head">
+                    <span class="material-symbols-outlined f-icon pastel-pink">redeem</span>
+                    <h3>Giveaways</h3>
                 </div>
-                <div class="terminal-line" data-delay="4">
-                    <span class="terminal-prompt">$</span>
-                    <span class="terminal-cmd" data-text="cp .env.example .env && nano .env"></span>
+                <p>Button-based entry, multi-winner support, auto-end via background task, reroll winners, live entry counter, and giveaway listing.</p>
+                <div class="f-footer"><span class="material-symbols-outlined">terminal</span> 4 commands</div>
+            </div>
+
+            <div class="f-card reveal" data-delay="5">
+                <div class="f-card-head">
+                    <span class="material-symbols-outlined f-icon pastel-blue">confirmation_number</span>
+                    <h3>Tickets</h3>
                 </div>
-                <div class="terminal-line terminal-output" data-delay="5">
-                    <span>Configure your <span class="terminal-highlight">DISCORD_TOKEN</span> and settings</span>
+                <p>Interactive button panel, auto channel creation, claim system, add/remove members, rename, ticket info, and close with logging.</p>
+                <div class="f-footer"><span class="material-symbols-outlined">terminal</span> 7 commands</div>
+            </div>
+
+            <div class="f-card reveal" data-delay="6">
+                <div class="f-card-head">
+                    <span class="material-symbols-outlined f-icon pastel-orange">smart_toy</span>
+                    <h3>AutoMod</h3>
                 </div>
-                <div class="terminal-line" data-delay="6">
-                    <span class="terminal-prompt">$</span>
-                    <span class="terminal-cmd" data-text="python bot.py"></span>
+                <p>Anti-spam, anti-link, caps filter, mention flood, banned words, emoji flood detection, staff bypass, and violation logging.</p>
+                <div class="f-footer"><span class="material-symbols-outlined">terminal</span> 6 filters</div>
+            </div>
+
+            <div class="f-card reveal" data-delay="7">
+                <div class="f-card-head">
+                    <span class="material-symbols-outlined f-icon pastel-teal">description</span>
+                    <h3>Logging</h3>
                 </div>
-                <div class="terminal-line terminal-output terminal-final" data-delay="7">
-                    <span>
-╔══════════════════════════════════════╗<br>
-║&nbsp;&nbsp;🤖 DiBot is <span class="terminal-success">ONLINE!</span><br>
-║&nbsp;&nbsp;📡 Guilds: <span class="terminal-highlight">1</span><br>
-║&nbsp;&nbsp;⚡ Slash Commands: <span class="terminal-highlight">50+</span><br>
-║&nbsp;&nbsp;🌐 Dashboard: <span class="terminal-highlight">localhost:5000</span><br>
-╚══════════════════════════════════════╝
-                    </span>
+                <p>Message edits/deletes, member join/leave, role changes, channel events, voice state, ban/unban, nickname, and full mod history.</p>
+                <div class="f-footer"><span class="material-symbols-outlined">terminal</span> 15+ events</div>
+            </div>
+
+            <div class="f-card reveal" data-delay="8">
+                <div class="f-card-head">
+                    <span class="material-symbols-outlined f-icon pastel-indigo">language</span>
+                    <h3>Web Dashboard</h3>
                 </div>
-                <div class="terminal-cursor"></div>
+                <p>Discord OAuth2 login, server management, XP leaderboards, live settings editor, REST API endpoints, and server statistics.</p>
+                <div class="f-footer"><span class="material-symbols-outlined">terminal</span> 8 API routes</div>
+            </div>
+
+            <div class="f-card reveal" data-delay="9">
+                <div class="f-card-head">
+                    <span class="material-symbols-outlined f-icon pastel-lime">sports_esports</span>
+                    <h3>Games</h3>
+                </div>
+                <p>Tic-Tac-Toe with buttons, trivia from OpenTDB, number guessing, 8ball, memes, jokes, roasts, RPS, Would You Rather.</p>
+                <div class="f-footer"><span class="material-symbols-outlined">terminal</span> 20+ commands</div>
+            </div>
+
+            <div class="f-card reveal" data-delay="10">
+                <div class="f-card-head">
+                    <span class="material-symbols-outlined f-icon pastel-cyan">lightbulb</span>
+                    <h3>Suggestions & Polls</h3>
+                </div>
+                <p>Submit suggestions with status tracking, approve/deny/consider/implement. Quick polls, multi-option, and live straw polls.</p>
+                <div class="f-footer"><span class="material-symbols-outlined">terminal</span> 10+ commands</div>
+            </div>
+
+            <div class="f-card reveal" data-delay="11">
+                <div class="f-card-head">
+                    <span class="material-symbols-outlined f-icon pastel-rose">extension</span>
+                    <h3>And More</h3>
+                </div>
+                <p>Reaction roles, AFK system, reminders, starboard, tags, welcome/leave messages, auto roles, and complete admin controls.</p>
+                <div class="f-footer"><span class="material-symbols-outlined">terminal</span> Unlimited</div>
             </div>
         </div>
     </section>
 
-    <!-- ═══════════════════════════════════ -->
-    <!--  COMMANDS SHOWCASE                  -->
-    <!-- ═══════════════════════════════════ -->
+    <!-- ══════════════════════════════ -->
+    <!--  COMMANDS                     -->
+    <!-- ══════════════════════════════ -->
     <section class="section" id="commands">
-        <div class="section-header animate-on-scroll">
-            <span class="section-label">Commands</span>
+        <div class="section-head reveal">
+            <span class="section-tag"><span class="material-symbols-outlined">terminal</span> Commands</span>
             <h2 class="section-title">Prefix & Slash. Your choice.</h2>
-            <p class="section-desc">Every command works as both <code>!</code> prefix and <code>/</code> slash.</p>
+            <p class="section-sub">Every command works with <code>!</code> prefix and <code>/</code> slash.</p>
         </div>
 
-        <div class="commands-tabs animate-on-scroll">
-            <button class="tab active" data-tab="mod">🛡️ Moderation</button>
-            <button class="tab" data-tab="eco">💰 Economy</button>
-            <button class="tab" data-tab="fun">🎮 Fun & Games</button>
-            <button class="tab" data-tab="util">🔧 Utility</button>
-            <button class="tab" data-tab="admin">⚙️ Admin</button>
+        <div class="tabs reveal" data-delay="0">
+            <button class="tab-btn active" data-tab="tab-mod">
+                <span class="material-symbols-outlined">shield</span> Moderation
+            </button>
+            <button class="tab-btn" data-tab="tab-eco">
+                <span class="material-symbols-outlined">paid</span> Economy
+            </button>
+            <button class="tab-btn" data-tab="tab-fun">
+                <span class="material-symbols-outlined">sports_esports</span> Fun
+            </button>
+            <button class="tab-btn" data-tab="tab-util">
+                <span class="material-symbols-outlined">build</span> Utility
+            </button>
+            <button class="tab-btn" data-tab="tab-admin">
+                <span class="material-symbols-outlined">settings</span> Admin
+            </button>
         </div>
 
-        <div class="commands-panel active" id="panel-mod">
-            <div class="cmd-grid">
-                <div class="cmd"><code>/kick</code><span>Kick a member</span></div>
-                <div class="cmd"><code>/ban</code><span>Ban a member</span></div>
-                <div class="cmd"><code>/tempban</code><span>Temporary ban</span></div>
-                <div class="cmd"><code>/mute</code><span>Timeout a member</span></div>
-                <div class="cmd"><code>/warn</code><span>Issue a warning</span></div>
-                <div class="cmd"><code>/purge</code><span>Bulk delete messages</span></div>
-                <div class="cmd"><code>/lock</code><span>Lock a channel</span></div>
-                <div class="cmd"><code>/slowmode</code><span>Set slowmode delay</span></div>
-                <div class="cmd"><code>/lockdown</code><span>Lock all channels</span></div>
-                <div class="cmd"><code>/modlogs</code><span>View mod history</span></div>
-            </div>
-        </div>
-
-        <div class="commands-panel" id="panel-eco">
-            <div class="cmd-grid">
-                <div class="cmd"><code>/balance</code><span>Check your coins</span></div>
-                <div class="cmd"><code>/daily</code><span>Claim daily reward</span></div>
-                <div class="cmd"><code>/work</code><span>Work for coins</span></div>
-                <div class="cmd"><code>/gamble</code><span>Bet your coins</span></div>
-                <div class="cmd"><code>/rob</code><span>Rob another user</span></div>
-                <div class="cmd"><code>/slots</code><span>Slot machine</span></div>
-                <div class="cmd"><code>/shop</code><span>View server shop</span></div>
-                <div class="cmd"><code>/buy</code><span>Buy an item</span></div>
-                <div class="cmd"><code>/pay</code><span>Send coins</span></div>
-                <div class="cmd"><code>/richest</code><span>Rich leaderboard</span></div>
+        <div class="tab-panel active" id="tab-mod">
+            <div class="cmd-list">
+                <div class="cmd-item"><code>/kick</code><span>Kick a member from the server</span></div>
+                <div class="cmd-item"><code>/ban</code><span>Permanently ban a member</span></div>
+                <div class="cmd-item"><code>/tempban</code><span>Temporarily ban with auto-unban</span></div>
+                <div class="cmd-item"><code>/mute</code><span>Timeout a member</span></div>
+                <div class="cmd-item"><code>/warn</code><span>Issue a tracked warning</span></div>
+                <div class="cmd-item"><code>/purge</code><span>Bulk delete 1-100 messages</span></div>
+                <div class="cmd-item"><code>/lock</code><span>Lock a channel</span></div>
+                <div class="cmd-item"><code>/lockdown</code><span>Lock all channels</span></div>
+                <div class="cmd-item"><code>/slowmode</code><span>Set channel slowmode</span></div>
+                <div class="cmd-item"><code>/modlogs</code><span>View moderation history</span></div>
             </div>
         </div>
 
-        <div class="commands-panel" id="panel-fun">
-            <div class="cmd-grid">
-                <div class="cmd"><code>/tictactoe</code><span>Play Tic-Tac-Toe</span></div>
-                <div class="cmd"><code>/trivia</code><span>Answer trivia</span></div>
-                <div class="cmd"><code>/8ball</code><span>Magic 8-ball</span></div>
-                <div class="cmd"><code>/meme</code><span>Random meme</span></div>
-                <div class="cmd"><code>/rps</code><span>Rock Paper Scissors</span></div>
-                <div class="cmd"><code>/roast</code><span>Roast someone</span></div>
-                <div class="cmd"><code>/joke</code><span>Random joke</span></div>
-                <div class="cmd"><code>/wyr</code><span>Would You Rather</span></div>
-                <div class="cmd"><code>/slots</code><span>Slot machine</span></div>
-                <div class="cmd"><code>/guess</code><span>Number guessing</span></div>
+        <div class="tab-panel" id="tab-eco">
+            <div class="cmd-list">
+                <div class="cmd-item"><code>/balance</code><span>Check your coin balance</span></div>
+                <div class="cmd-item"><code>/daily</code><span>Claim daily coin reward</span></div>
+                <div class="cmd-item"><code>/work</code><span>Work a job for coins</span></div>
+                <div class="cmd-item"><code>/gamble</code><span>Bet coins on a dice roll</span></div>
+                <div class="cmd-item"><code>/rob</code><span>Attempt to rob another user</span></div>
+                <div class="cmd-item"><code>/slots</code><span>Play the slot machine</span></div>
+                <div class="cmd-item"><code>/shop</code><span>Browse server shop</span></div>
+                <div class="cmd-item"><code>/buy</code><span>Purchase a shop item</span></div>
+                <div class="cmd-item"><code>/pay</code><span>Transfer coins to someone</span></div>
+                <div class="cmd-item"><code>/richest</code><span>View the rich leaderboard</span></div>
             </div>
         </div>
 
-        <div class="commands-panel" id="panel-util">
-            <div class="cmd-grid">
-                <div class="cmd"><code>/help</code><span>Paginated help</span></div>
-                <div class="cmd"><code>/profile</code><span>View profile card</span></div>
-                <div class="cmd"><code>/rank</code><span>View XP rank</span></div>
-                <div class="cmd"><code>/serverinfo</code><span>Server info</span></div>
-                <div class="cmd"><code>/avatar</code><span>View avatar</span></div>
-                <div class="cmd"><code>/remind</code><span>Set a reminder</span></div>
-                <div class="cmd"><code>/afk</code><span>Set AFK status</span></div>
-                <div class="cmd"><code>/suggest</code><span>Submit suggestion</span></div>
-                <div class="cmd"><code>/poll</code><span>Create a poll</span></div>
-                <div class="cmd"><code>/ping</code><span>Check latency</span></div>
+        <div class="tab-panel" id="tab-fun">
+            <div class="cmd-list">
+                <div class="cmd-item"><code>/tictactoe</code><span>Play interactive Tic-Tac-Toe</span></div>
+                <div class="cmd-item"><code>/trivia</code><span>Answer a trivia question</span></div>
+                <div class="cmd-item"><code>/8ball</code><span>Ask the magic 8-ball</span></div>
+                <div class="cmd-item"><code>/meme</code><span>Get a random meme</span></div>
+                <div class="cmd-item"><code>/rps</code><span>Rock Paper Scissors</span></div>
+                <div class="cmd-item"><code>/roast</code><span>Roast a member</span></div>
+                <div class="cmd-item"><code>/joke</code><span>Get a random joke</span></div>
+                <div class="cmd-item"><code>/wyr</code><span>Would You Rather</span></div>
+                <div class="cmd-item"><code>/guess</code><span>Number guessing game</span></div>
+                <div class="cmd-item"><code>/coinflip</code><span>Flip a coin</span></div>
             </div>
         </div>
 
-        <div class="commands-panel" id="panel-admin">
-            <div class="cmd-grid">
-                <div class="cmd"><code>/setup welcome</code><span>Configure welcome</span></div>
-                <div class="cmd"><code>/setup logs</code><span>Set log channel</span></div>
-                <div class="cmd"><code>/setup automod</code><span>Configure AutoMod</span></div>
-                <div class="cmd"><code>/setup starboard</code><span>Setup starboard</span></div>
-                <div class="cmd"><code>/giveaway start</code><span>Start giveaway</span></div>
-                <div class="cmd"><code>/ticket setup</code><span>Create ticket panel</span></div>
-                <div class="cmd"><code>/addcoins</code><span>Give coins</span></div>
-                <div class="cmd"><code>/announce</code><span>Send announcement</span></div>
-                <div class="cmd"><code>/levelrole</code><span>Add level reward</span></div>
-                <div class="cmd"><code>/reactionrole</code><span>Add reaction role</span></div>
+        <div class="tab-panel" id="tab-util">
+            <div class="cmd-list">
+                <div class="cmd-item"><code>/help</code><span>Paginated help menu</span></div>
+                <div class="cmd-item"><code>/profile</code><span>View user profile card</span></div>
+                <div class="cmd-item"><code>/rank</code><span>View XP rank and level</span></div>
+                <div class="cmd-item"><code>/serverinfo</code><span>Full server information</span></div>
+                <div class="cmd-item"><code>/avatar</code><span>View user avatar</span></div>
+                <div class="cmd-item"><code>/remind</code><span>Set a timed reminder</span></div>
+                <div class="cmd-item"><code>/afk</code><span>Set AFK status</span></div>
+                <div class="cmd-item"><code>/suggest</code><span>Submit a suggestion</span></div>
+                <div class="cmd-item"><code>/poll</code><span>Create a poll</span></div>
+                <div class="cmd-item"><code>/ping</code><span>Check bot latency</span></div>
             </div>
         </div>
-    </section>
 
-    <!-- ═══════════════════════════════════ -->
-    <!--  STATS                              -->
-    <!-- ═══════════════════════════════════ -->
-    <section class="section" id="stats">
-        <div class="section-header animate-on-scroll">
-            <span class="section-label">By the Numbers</span>
-            <h2 class="section-title">Built to scale.</h2>
-        </div>
-
-        <div class="stats-grid animate-on-scroll">
-            <div class="stat-card">
-                <span class="stat-number" data-count="94">0</span>
-                <span class="stat-suffix">+</span>
-                <span class="stat-label">Features</span>
-            </div>
-            <div class="stat-card">
-                <span class="stat-number" data-count="50">0</span>
-                <span class="stat-suffix">+</span>
-                <span class="stat-label">Slash Commands</span>
-            </div>
-            <div class="stat-card">
-                <span class="stat-number" data-count="15">0</span>
-                <span class="stat-suffix"></span>
-                <span class="stat-label">Database Tables</span>
-            </div>
-            <div class="stat-card">
-                <span class="stat-number" data-count="8">0</span>
-                <span class="stat-suffix"></span>
-                <span class="stat-label">API Endpoints</span>
-            </div>
-            <div class="stat-card">
-                <span class="stat-number" data-count="20">0</span>
-                <span class="stat-suffix">+</span>
-                <span class="stat-label">Cog Modules</span>
-            </div>
-            <div class="stat-card">
-                <span class="stat-number" data-count="0">0</span>
-                <span class="stat-suffix">$</span>
-                <span class="stat-label">Cost Forever</span>
+        <div class="tab-panel" id="tab-admin">
+            <div class="cmd-list">
+                <div class="cmd-item"><code>/setup welcome</code><span>Configure welcome system</span></div>
+                <div class="cmd-item"><code>/setup logs</code><span>Set mod log channel</span></div>
+                <div class="cmd-item"><code>/setup automod</code><span>Toggle AutoMod filters</span></div>
+                <div class="cmd-item"><code>/setup starboard</code><span>Configure starboard</span></div>
+                <div class="cmd-item"><code>/giveaway start</code><span>Start a giveaway</span></div>
+                <div class="cmd-item"><code>/ticket setup</code><span>Create ticket panel</span></div>
+                <div class="cmd-item"><code>/addcoins</code><span>Give coins to a user</span></div>
+                <div class="cmd-item"><code>/announce</code><span>Send an announcement</span></div>
+                <div class="cmd-item"><code>/levelrole</code><span>Add level role reward</span></div>
+                <div class="cmd-item"><code>/reactionrole</code><span>Setup reaction roles</span></div>
             </div>
         </div>
     </section>
 
-    <!-- ═══════════════════════════════════ -->
-    <!--  CTA                                -->
-    <!-- ═══════════════════════════════════ -->
-    <section class="section cta-section" id="cta">
-        <div class="cta animate-on-scroll">
-            <div class="cta-glow"></div>
-            <h2>Ready to get started?</h2>
-            <p>Deploy DiBot in minutes. Free, open source, and fully customizable.</p>
-            <div class="cta-actions">
-                <a href="https://github.com/Compromisee/DiBot" target="_blank" class="btn btn-primary btn-lg">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                    Star on GitHub
-                </a>
-                <a href="https://discord.gg/yxbEGDnvac" target="_blank" class="btn btn-ghost btn-lg">
-                    Join Community
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </a>
+    <!-- ══════════════════════════════ -->
+    <!--  QUICK START                  -->
+    <!-- ══════════════════════════════ -->
+    <section class="section" id="quickstart">
+        <div class="section-head reveal">
+            <span class="section-tag"><span class="material-symbols-outlined">rocket_launch</span> Quick Start</span>
+            <h2 class="section-title">Deploy in 4 steps.</h2>
+        </div>
+
+        <div class="steps-grid">
+            <div class="step-card reveal" data-delay="0">
+                <div class="step-num">01</div>
+                <div class="step-content">
+                    <h3><span class="material-symbols-outlined">download</span> Clone</h3>
+                    <p>Clone the repository from GitHub to your local machine.</p>
+                    <code>git clone https://github.com/Compromisee/DiBot.git</code>
+                </div>
+            </div>
+
+            <div class="step-card reveal" data-delay="1">
+                <div class="step-num">02</div>
+                <div class="step-content">
+                    <h3><span class="material-symbols-outlined">package_2</span> Install</h3>
+                    <p>Install all Python dependencies with pip.</p>
+                    <code>pip install -r requirements.txt</code>
+                </div>
+            </div>
+
+            <div class="step-card reveal" data-delay="2">
+                <div class="step-num">03</div>
+                <div class="step-content">
+                    <h3><span class="material-symbols-outlined">key</span> Configure</h3>
+                    <p>Copy the example env file and add your bot token.</p>
+                    <code>cp .env.example .env</code>
+                </div>
+            </div>
+
+            <div class="step-card reveal" data-delay="3">
+                <div class="step-num">04</div>
+                <div class="step-content">
+                    <h3><span class="material-symbols-outlined">bolt</span> Launch</h3>
+                    <p>Start the bot and dashboard with one command.</p>
+                    <code>python bot.py</code>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- ═══════════════════════════════════ -->
-    <!--  FOOTER                             -->
-    <!-- ═══════════════════════════════════ -->
+    <!-- ══════════════════════════════ -->
+    <!--  CTA                          -->
+    <!-- ══════════════════════════════ -->
+    <section class="section">
+        <div class="cta-box reveal">
+            <div class="cta-content">
+                <span class="material-symbols-outlined cta-icon">auto_awesome</span>
+                <h2>Ready to get started?</h2>
+                <p>Deploy DiBot in minutes. It's free, open source, and built to scale.</p>
+                <div class="cta-btns">
+                    <a href="https://github.com/Compromisee/DiBot" target="_blank" class="btn btn-fill btn-lg">
+                        <span class="material-symbols-outlined btn-icon">code</span>
+                        Star on GitHub
+                    </a>
+                    <a href="https://discord.gg/yxbEGDnvac" target="_blank" class="btn btn-outline btn-lg">
+                        <span class="material-symbols-outlined btn-icon">group</span>
+                        Join Community
+                    </a>
+                    <a href="docs.html" class="btn btn-outline btn-lg">
+                        <span class="material-symbols-outlined btn-icon">menu_book</span>
+                        Documentation
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════ -->
+    <!--  FOOTER                       -->
+    <!-- ══════════════════════════════ -->
     <footer class="footer">
         <div class="footer-inner">
             <div class="footer-brand">
-                <span class="brand-icon">⚡</span>
+                <span class="material-symbols-outlined">bolt</span>
                 <span>DiBot</span>
             </div>
             <div class="footer-links">
                 <a href="https://github.com/Compromisee/DiBot" target="_blank">GitHub</a>
                 <a href="https://discord.gg/yxbEGDnvac" target="_blank">Discord</a>
+                <a href="docs.html">Documentation</a>
                 <a href="https://github.com/Compromisee/DiBot/blob/main/LICENSE" target="_blank">License</a>
             </div>
-            <p class="footer-copy">Built with 🐍 Python &amp; ❤️ by <a href="https://github.com/Compromisee" target="_blank">Compromise</a></p>
+            <p class="footer-copy">Built with Python by <a href="https://github.com/Compromisee" target="_blank">Compromise</a></p>
         </div>
     </footer>
 
+    <script src="js/particles.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
